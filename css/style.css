@@ -302,6 +302,41 @@
    padding-left: 6px;
  }
 
+/* Contenedor de las redes sociales */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Espacio entre los iconos */
+  flex-wrap: wrap;
+}
+
+.footer-social p {
+  width: 100%;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
+
+/* Estilo para las imágenes .png de los iconos */
+.social-icon {
+  width: 32px; /* Ajusta el ancho del icono */
+  height: 32px; /* Ajusta el alto del icono */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  filter: brightness(0.9);
+}
+
+/* Efecto al pasar el mouse por encima */
+.social-icon:hover {
+  transform: scale(1.15); /* Crece un poco */
+  filter: brightness(1.2);
+}
+
+
+
+
+
+
+
  @keyframes float {
 
    0%,
@@ -379,6 +414,32 @@
 
    /* separación entre botones */
  }
+
+
+/* Estilo general del pie de página */
+.footer {
+  background-color: #222222;
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+
+/* Contenedor de las redes sociales */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px; /* Espacio entre los iconos */
+  flex-wrap: wrap;
+}
+
+.footer-social p {
+  width: 100%;
+  margin: 0 0 10px 0;
+  font-size: 14px;
+}
 
 
  /* TERMÓMETRO ANIMADO */
