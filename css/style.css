@@ -14,13 +14,14 @@
 
  body {
    margin: 0;
-  background: linear-gradient(160deg, #1a1f3c, #0b0f24);
+  /* background: linear-gradient(160deg, #1a1f3c, #0b0f24); */
+  /* background:rgb(252, 255, 255); */
       display: flex;
    justify-content: center;
    padding: 0px;
    color: var(--text);
    /* Control fondo imagen; */
-   /* background-image: url("../img/fondo/f1.jpg"); */
+   background-image: url("../img/fondo/f4.jpg");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -54,19 +55,20 @@
    /*Texto COMPUGUED*/
    margin: 1px 0 2px;
    font-size: 22px;
+   color: #ffffff;
  }
-
-
 
  .header p {
    /*Descripcion Breve*/
    font-size: 15px;
    padding: 1px;
+    color: #ffffff;
  }
 
  .titulo-principal {
    font-family: 'Ethnocentric', sans-serif;
    font-weight: normal
+   
  }
  /* FIN HEADER ===== */
 
@@ -76,11 +78,13 @@
    grid-template-columns: 1fr 1fr;
    gap: 20px;
    padding: 10px 5px 20px;
+      color: #0e0f13;
+      margin-top: 20px;
  }
 
  .action {
    /* background: rgb(0, 0, 0); */
-   color: #fff;
+      color: whitesmoke;
    text-decoration: none;
    border-radius: 15px;
    padding: 5px 20px;
@@ -189,7 +193,7 @@
  @media(min-width:1600px) {
    body {
      padding: 40px;
-     background-image: url("../img/fondo/f1.jpg");
+     background-image: url("../img/fondo/f4.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -268,8 +272,6 @@
    align-items: flex-start;
  }
 
-
-
  /* CLIMA WEATHER */
  .weather-wrap {
    display: flex;
@@ -335,11 +337,6 @@
 }
 
 
-
-
-
-
-
  @keyframes float {
 
    0%,
@@ -386,12 +383,12 @@
  } */
 
 
- footer {
+ /* footer {
    text-align: center;
    font-size: 17px;
    color: var(--text);
    line-height: 1.6;
- }
+ } */
 
 
 .share-buttons {
@@ -421,7 +418,7 @@
 
 /* Estilo general del pie de página */
 .footer {
-  background-color: #222222;
+  /* background-color: #222222; */
   color: #ffffff;
   border-radius: 20px;
   text-align: center;
