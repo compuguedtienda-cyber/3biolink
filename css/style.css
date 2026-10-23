@@ -56,6 +56,8 @@
    font-size: 22px;
  }
 
+
+
  .header p {
    /*Descripcion Breve*/
    font-size: 15px;
@@ -63,7 +65,8 @@
  }
 
  .titulo-principal {
-   font-family: 'Michroma', sans-serif;
+   font-family: 'Ethnocentric', sans-serif;
+   font-weight: normal
  }
  /* FIN HEADER ===== */
 
@@ -319,8 +322,8 @@
 
 /* Estilo para las imágenes .png de los iconos */
 .social-icon {
-  width: 32px; /* Ajusta el ancho del icono */
-  height: 32px; /* Ajusta el alto del icono */
+  width: 40px; /* Ajusta el ancho del icono */
+  height: 40px; /* Ajusta el alto del icono */
   transition: transform 0.3s ease, opacity 0.3s ease;
   filter: brightness(0.9);
 }
