@@ -65,11 +65,26 @@
     color: #ffffff;
  }
 
- .titulo-principal {
+ /* .titulo-principal {
    font-family: 'Ethnocentric', sans-serif;
    font-weight: normal
-   
- }
+ } */
+
+ @font-face {
+  font-family: 'Ethnocentric';
+  src: url('../fonts/ethnocentric.woff2') format('woff2'),
+       url('../fonts/ethnocentric.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.titulo-principal {
+  font-family: 'Ethnocentric', Arial, sans-serif;
+}
+
+
+
  /* FIN HEADER ===== */
 
  /* 2 BOTONES ACTIONS  ===== */
@@ -78,13 +93,12 @@
    grid-template-columns: 1fr 1fr;
    gap: 20px;
    padding: 10px 5px 20px;
-      color: #0e0f13;
-      margin-top: 20px;
- }
+        margin-top: 10px;
+  }
 
  .action {
    /* background: rgb(0, 0, 0); */
-      color: whitesmoke;
+   color: whitesmoke;
    text-decoration: none;
    border-radius: 15px;
    padding: 5px 20px;
@@ -94,6 +108,7 @@
    transition: .25s;
    border: 2px solid #ffffff;
    /* grosor | estilo | color */
+   background-color: rgb(34, 32, 32);
  }
 
  .action i {
@@ -110,7 +125,7 @@
 
  .action span {
    display: block;
-   font-size: 14px;
+   font-size: 17px;
    font-weight: 600;
  }
 
@@ -123,6 +138,7 @@
    animation: bouncy 3s infinite linear;
  }
 
+ 
  @keyframes bouncy {
 
    0%,
@@ -423,7 +439,7 @@
   border-radius: 20px;
   text-align: center;
   padding: 10px 0;
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 /* Contenedor de las redes sociales */
