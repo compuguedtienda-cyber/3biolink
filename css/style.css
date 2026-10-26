@@ -14,13 +14,14 @@
 
  body {
    margin: 0;
-  background: linear-gradient(160deg, #1a1f3c, #0b0f24);
+  /* background: linear-gradient(160deg, #1a1f3c, #0b0f24); */
+  /* background:rgb(252, 255, 255); */
       display: flex;
    justify-content: center;
    padding: 0px;
    color: var(--text);
    /* Control fondo imagen; */
-   /* background-image: url("../img/fondo/f1.jpg"); */
+   background-image: url("../img/fondo/f4.jpg");
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
@@ -54,33 +55,62 @@
    /*Texto COMPUGUED*/
    margin: 1px 0 2px;
    font-size: 22px;
+   color: #ffffff;
  }
-
-
 
  .header p {
    /*Descripcion Breve*/
    font-size: 15px;
    padding: 1px;
+    color: #ffffff;
  }
 
- .titulo-principal {
+ /* .titulo-principal {
    font-family: 'Ethnocentric', sans-serif;
    font-weight: normal
- }
+ } */
+
+ @font-face {
+  font-family: 'Ethnocentric';
+  src: url('../fonts/ethnocentric.woff2') format('woff2'),
+       url('../fonts/ethnocentric.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.titulo-principal {
+  font-family: 'Ethnocentric', Arial, sans-serif;
+}
+
+
+
  /* FIN HEADER ===== */
+
+
+ .actions0 {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 20px;
+   padding: 5px 5px 0px;
+        margin-top: 10px;
+  }
+
+
+
 
  /* 2 BOTONES ACTIONS  ===== */
  .actions {
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 20px;
-   padding: 10px 5px 20px;
- }
+   padding: 5px 5px 0px;
+        margin-top: 10px;
+  }
 
  .action {
    /* background: rgb(0, 0, 0); */
-   color: #fff;
+   color: whitesmoke;
    text-decoration: none;
    border-radius: 15px;
    padding: 5px 20px;
@@ -90,6 +120,7 @@
    transition: .25s;
    border: 2px solid #ffffff;
    /* grosor | estilo | color */
+   background-color: rgb(34, 32, 32);
  }
 
  .action i {
@@ -106,7 +137,7 @@
 
  .action span {
    display: block;
-   font-size: 14px;
+   font-size: 17px;
    font-weight: 600;
  }
 
@@ -119,6 +150,7 @@
    animation: bouncy 3s infinite linear;
  }
 
+ 
  @keyframes bouncy {
 
    0%,
@@ -189,7 +221,7 @@
  @media(min-width:1600px) {
    body {
      padding: 40px;
-     background-image: url("../img/fondo/f1.jpg");
+     background-image: url("../img/fondo/f4.jpg");
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
@@ -268,8 +300,6 @@
    align-items: flex-start;
  }
 
-
-
  /* CLIMA WEATHER */
  .weather-wrap {
    display: flex;
@@ -335,11 +365,6 @@
 }
 
 
-
-
-
-
-
  @keyframes float {
 
    0%,
@@ -386,12 +411,12 @@
  } */
 
 
- footer {
+ /* footer {
    text-align: center;
    font-size: 17px;
    color: var(--text);
    line-height: 1.6;
- }
+ } */
 
 
 .share-buttons {
@@ -421,12 +446,12 @@
 
 /* Estilo general del pie de página */
 .footer {
-  background-color: #222222;
+  /* background-color: #222222; */
   color: #ffffff;
   border-radius: 20px;
   text-align: center;
   padding: 10px 0;
-  margin-top: 10px;
+  margin-top: 1px;
 }
 
 /* Contenedor de las redes sociales */

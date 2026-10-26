@@ -213,10 +213,6 @@ function goToAbout(){
   window.location.href = 'about.html';
 }
 
-/* IR A CUENTAS */
-function goToCuentas(){
-  window.location.href = 'cuentas.html';
-}
 
 /* IR A MAPA */
 function goToMap(){
