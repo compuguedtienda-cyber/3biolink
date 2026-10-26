@@ -149,47 +149,68 @@
    margin-top: 10px;
   }
 
- .action2 {
-   /* background: rgb(0, 0, 0); */
-   color: whitesmoke;
-   text-decoration: none;
-   border-radius: 15px;
-   padding: 5px 20px;
-   text-align: center;
-   font-size: 15px;
-   font-weight: 600;
-   transition: .25s;
-   border: 2px solid #ffffff;
-   /* grosor | estilo | color */
-   background-color: rgb(34, 32, 32);
- }
+.action2 {
+  /* background: rgb(0, 0, 0); */
+  position: relative;            /* NUEVO: referencia para el icono */
+  display: flex;                 /* NUEVO */
+  align-items: center;           /* NUEVO: centra vertical */
+  justify-content: center;       /* NUEVO: centra horizontal el texto */
+  min-height: 55px;              /* NUEVO: altura del botón */
+  color: whitesmoke;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 5px 20px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  transition: .25s;
+  border: 2px solid #ffffff;
+  /* grosor | estilo | color */
+  background-color: rgb(34, 32, 32);
+}
+
+/* NUEVO: icono fijo a la izquierda */
+.action2 .social-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* NUEVO: evita que el hover agrandado desplace el icono */
+.action2 .social-icon:hover {
+  transform: translateY(-50%) scale(1.15);
+}
 
 
 
+/* 2 BOTONES ACTIONS  ===== */
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0px 30px 20px;   /* CAMBIO: antes 0px 5px 20px, esto los hace un poco menos anchos */
+  margin-top: 10px;
+}
 
- /* 2 BOTONES ACTIONS  ===== */
- .actions {
-   display: grid;
-   grid-template-columns: 1fr 1fr;
-   gap: 20px;
-   padding: 0px 5px 20px;
-        margin-top: 10px;
-  }
-
- .action {
-   /* background: rgb(0, 0, 0); */
-   color: whitesmoke;
-   text-decoration: none;
-   border-radius: 15px;
-   padding: 5px 20px;
-   text-align: center;
-   font-size: 15px;
-   font-weight: 600;
-   transition: .25s;
-   border: 2px solid #ffffff;
-   /* grosor | estilo | color */
-   background-color: rgb(34, 32, 32);
- }
+.action {
+  /* background: rgb(0, 0, 0); */
+  display: flex;             /* NUEVO */
+  align-items: center;       /* NUEVO: centra vertical */
+  justify-content: center;   /* NUEVO: centra horizontal */
+  min-height: 55px;          /* NUEVO: altura igual a los botones de arriba */
+  color: whitesmoke;
+  text-decoration: none;
+  border-radius: 30px;
+  padding: 5px;              /* CAMBIO: antes 5px 20px */
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  transition: .25s;
+  border: 2px solid #ffffff;
+  /* grosor | estilo | color */
+  background-color: rgb(34, 32, 32);
+}
 
  .action i {
    font-size: 2rem;
