@@ -102,37 +102,75 @@
     width: 90%;
     justify-self: center;
     box-sizing: border-box;
-}
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    padding: 12px 20px;
+    gap: 2rem;
+  }
 
 .btn-catalogo2 {
-    width: 80%;
+    width: 90%;
     justify-self: center;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 70px;
+    
 }
 
+/* Estilo para las imágenes .png de los iconos */
+.social-icon {
+  width: 40px; /* Ajusta el ancho del icono */
+  height: 40px; /* Ajusta el alto del icono */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  filter: brightness(0.9);
+}
+
+
+
+/* Efecto al pasar el mouse por encima */
+.social-icon:hover {
+  transform: scale(1.15); /* Crece un poco */
+  filter: brightness(1.2);
+}
 
  /* 2 BOTONES ACTIONS  ===== */
  .actions {
-   display: grid;
+    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 20px;
-   padding: 5px 5px 0px;
+   padding: 5px 15px 0px;
         margin-top: 10px;
+        align-items: center;
+        text-align: center;
+        width: 90%; 
   }
 
  .action {
    /* background: rgb(0, 0, 0); */
    color: whitesmoke;
    text-decoration: none;
-   border-radius: 15px;
-   padding: 5px 20px;
-   text-align: center;
+   border-radius: 20px;
+   padding: 5px 5px;
+   
    font-size: 15px;
    font-weight: 600;
    transition: .25s;
    border: 2px solid #ffffff;
    /* grosor | estilo | color */
    background-color: rgb(34, 32, 32);
+ 
+
+display: flex;
+    align-items: center;
+    justify-content: center;
+
  }
 
  .action i {
@@ -362,19 +400,7 @@
   font-size: 14px;
 }
 
-/* Estilo para las imágenes .png de los iconos */
-.social-icon {
-  width: 40px; /* Ajusta el ancho del icono */
-  height: 40px; /* Ajusta el alto del icono */
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  filter: brightness(0.9);
-}
 
-/* Efecto al pasar el mouse por encima */
-.social-icon:hover {
-  transform: scale(1.15); /* Crece un poco */
-  filter: brightness(1.2);
-}
 
 
  @keyframes float {
