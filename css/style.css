@@ -99,11 +99,16 @@
 
 /* Botón exclusivo del catálogo PDF */
 .btn-catalogo {
-    width: 75%;
+    width: 95%;
     justify-self: center;
     box-sizing: border-box;
 }
 
+.btn-catalogo2 {
+    width: 80%;
+    justify-self: center;
+    box-sizing: border-box;
+}
 
 
  /* 2 BOTONES ACTIONS  ===== */
