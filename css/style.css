@@ -97,7 +97,6 @@
   }
 
 
-<<<<<<< HEAD
 /* Botón exclusivo del catálogo PDF */
 .btn-catalogo {
     width: 75%;
@@ -105,8 +104,6 @@
     box-sizing: border-box;
 }
 
-=======
->>>>>>> 7e3a33833e4fa2d707ebd0f003ad812a47bb832d
 
 
  /* 2 BOTONES ACTIONS  ===== */
@@ -114,15 +111,7 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 20px;
-<<<<<<< HEAD
    padding: 5px 5px 0px;
-=======
-<<<<<<< HEAD
-   padding: 5px 5px 0px;
-=======
-   padding: 10px 5px 20px;
->>>>>>> 44164b34bb2a27979cf873d61a1cc2eb57507b91
->>>>>>> 7e3a33833e4fa2d707ebd0f003ad812a47bb832d
         margin-top: 10px;
   }
 
