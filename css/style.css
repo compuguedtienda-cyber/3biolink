@@ -104,7 +104,11 @@
    display: grid;
    grid-template-columns: 1fr 1fr;
    gap: 20px;
+<<<<<<< HEAD
    padding: 5px 5px 0px;
+=======
+   padding: 10px 5px 20px;
+>>>>>>> 44164b34bb2a27979cf873d61a1cc2eb57507b91
         margin-top: 10px;
   }
 
