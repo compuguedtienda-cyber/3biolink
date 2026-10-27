@@ -84,13 +84,13 @@
    /* height: 195px; */
    height: 80px;
    overflow: hidden;
-   background: #fff;
+   
    border-radius: 5px;
  }
 
- .slider-track {
+ .slider-track{
    display: flex;
-   transition: transform 0.4s ease;
+   /* transition: transform 0.4s ease; */
  }
 
  .slider-track img {
