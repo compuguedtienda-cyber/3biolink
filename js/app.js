@@ -72,7 +72,7 @@ track.addEventListener('transitionend', () => {
 
 /* ===== AUTOPLAY INFINITO ===== */
 function startAutoplay() {
-  autoplayInterval = setInterval(moveNext, 3500);
+  // autoplayInterval = setInterval(moveNext, 3500);
 }
 
 function stopAutoplay() {
