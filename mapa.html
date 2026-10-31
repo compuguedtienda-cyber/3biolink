@@ -1,102 +1,114 @@
 <!DOCTYPE html>
-
 <html lang="es">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COMPUGUED | Tecnología</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMPUGUED | Tecnología</title>
 
-  <!-- Fonts & Icons -->
+  <!-- Icono de la web -->
+  <link rel="icon" href="img/iconos/logoico.ico">
+
+  <!-- Fuentes e iconos -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS general -->
   <link rel="stylesheet" href="css/style.css">
 
+  <!-- Open Graph (ogp.me) -->
+  <meta property="og:title" content="TECNOLOGÍA">
+  <meta property="og:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://compugued.vercel.app/">
+  <meta property="og:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card (compatible con X/Twitter) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TECNOLOGÍA">
+  <meta name="twitter:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
 </head>
 
-
 <body>
-<!--ESTILO CELULAR -->  
-<div class="phone">
-  <div class="contorno">
-  
+  <!-- ESTILO CELULAR -->
+  <div class="phone">
+    <div class="contorno">
 
-<!-- LOGO -->
-<div class="header">
-    <img src="img/logo/logofondoazul.png" class="avatar_mapa">
-    <h2 class="titulo-principal_2">COMPUGUED</h2>
-    
-  <div class="map-container">
-    <!-- IMAGEN  -->
-    <img src="img/mapa/1.jpg alt="Mapa COMPUGUED">
+      <!-- WIDGET CLIMA -->
+      <div class="top-bar">
+        <div class="weather-wrap">
+          <div class="weather" id="weather">
+            <i class="fa-solid fa-temperature-empty"></i>
+            <div class="info">
+              <span class="temp">--°C</span>
+            </div>
+          </div>
+          <div class="city">Chiclayo</div>
+        </div>
+      </div>
+      <!-- FIN WIDGET CLIMA -->
 
+      <!-- LOGO -->
+      <div class="header">
+        <img src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED" class="avatar">
+        <h1 class="titulo-principal">MAPA</h1>
+      </div>
 
+      <!-- Imagen Vertical -->
+      <div class="container">
+        <div class="slider">
+          <button class="nav prev" aria-label="Anterior">&#10094;</button>
 
-    <!-- BOTÓN VOLVER -->
-    <a href="index.html" class="back-btn btn">◀&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REGRESAR</a>
+          <div class="slider-window2">
+            <div class="slider-track2">
+              <img src="img/slider/mapa1.png" alt="Promociones de COMPUGUED">
+            </div>
+          </div>
+
+          <button class="nav next" aria-label="Siguiente">&#10095;</button>
+        </div>
+      </div>
+      <!-- FIN Imagen Vertical -->
+
+      <!-- BOTONES 4 ANCHOS -->
+      <div class="actions2">
+        <a href="index.html" class="action2 btn">
+          <img src="img/simbolos/pdf3.png" alt="Catálogo" class="social-icon">
+          <span>Regresar</span>
+        </a>
+
+      </div>
+      <!-- FIN BOTONES 4 ANCHOS -->
+
+      <!-- <footer class="footer">
+        <div class="footer-social">
+          <a href="about.html" aria-label="Acerca de">
+            <img src="img/simbolos/acerca1.png" alt="Acerca" class="social-icon">
+          </a>
+
+          <a href="mapa.html"">
+          <img src="img/simbolos/mapa4.png" alt="Mapa" class="social-icon">
+          </a>
+
+          <a href="#" aria-label="Compartir">
+            <img src="img/simbolos/compartir1.png" alt="Compartir" class="social-icon">
+          </a>
+        </div>
+
+        <p>&lt;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;TECNOLOGÍA A PEDIDO&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;</p>
+      </footer> -->
+
+    </div>
   </div>
-</div>
+  <!-- FIN ESTILO CELULAR -->
 
-
-</div>
-</div>
-
-
+  <!-- ENLACE JS -->
+  <script src="js/app.js"></script>
 </body>
-
-<!-- CSS INICIO -->
-  <style>
-
-     .map-container{
-      width:100%;
-      max-width:420px;
-      text-align:center;
-      padding:0px 20px;
-    }
-
-    .map-container img{
-      width:100%;
-      height: 420px;
-      border-radius:16px;
-      box-shadow:0 15px 40px rgba(0,0,0,.5);
-      margin-bottom:5px;
-    }
-
-    .back-btn{
-      display:inline-block;
-      padding:12px 22px;
-      border-radius:14px;
-      background:#000;
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      border:3px solid #fff;
-      transition:.3s;
-      margin-top: 1px;
-    }
-
-    .back-btn:hover{
-      transform:translateY(-3px);
-      box-shadow:0 10px 25px rgba(0,0,0,.4);
-    }
-
-/* css para mapa.html */
-.avatar_mapa{ /*Control Logo*/
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    /* border:4px solid #fff; */
-    border: none;
-    object-fit: cover;
-}
-
-.header h2{ /*Texto COMPUGUED*/
-    margin:5px 0 4px;
-    font-size: 22px;
-}
-</style>
-<!-- FIN CSS INICIO -->
 
 </html>
