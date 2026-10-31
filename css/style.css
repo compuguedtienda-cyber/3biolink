@@ -1,129 +1,321 @@
-<!DOCTYPE html>
-<html lang="es">
+:root {
+  --text: #eaeaf0;
+  --primary: #25d366; /* color de resplandor en los botones (cámbialo por tu marca) */
+}
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COMPUGUED | Tecnología</title>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-  <!-- Icono de la web -->
-  <link rel="icon" href="img/iconos/logoico.ico">
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  color: var(--text);
+  background-image: url("../img/fondo/f4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
-  <!-- Fuentes e iconos -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+.phone {
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
 
-  <!-- CSS general -->
-  <link rel="stylesheet" href="css/style.css">
+.contorno {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 0.5rem;
+}
 
-  <!-- Open Graph (ogp.me) -->
-  <meta property="og:title" content="TECNOLOGÍA">
-  <meta property="og:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://compugued.vercel.app/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+/* ===== CLIMA ===== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
 
-  <!-- Twitter Card (compatible con X/Twitter) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TECNOLOGÍA">
-  <meta name="twitter:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
-  <meta name="twitter:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
-</head>
+.weather-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
 
-<body>
-  <!-- ESTILO CELULAR -->
-  <div class="phone">
-    <div class="contorno">
+.weather {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 10px 15px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .4);
+  animation: float 3s ease-in-out infinite;
+  font-size: 14px;
+}
 
-      <!-- WIDGET CLIMA -->
-      <div class="top-bar">
-        <div class="weather-wrap">
-          <div class="weather" id="weather">
-            <i class="fa-solid fa-temperature-empty"></i>
-            <div class="info">
-              <span class="temp">--°C</span>
-            </div>
-          </div>
-          <div class="city">Chiclayo</div>
-        </div>
-      </div>
-      <!-- FIN WIDGET CLIMA -->
+.weather i {
+  font-size: 22px;
+}
 
-      <!-- LOGO -->
-      <div class="header">
-        <img src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED" class="avatar">
-        <h1 class="titulo-principal">COMPUGUED</h1>
-      </div>
+.weather .temp {
+  font-weight: 600;
+}
 
-      <!-- SLIDER -->
-      <div class="container">
-        <div class="slider">
-          <button class="nav prev" aria-label="Anterior">&#10094;</button>
+.city {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text);
+  padding-left: 6px;
+}
 
-          <div class="slider-window">
-            <div class="slider-track">
-              <img src="img/slider/1.png" alt="Promociones de COMPUGUED">
-            </div>
-          </div>
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
 
-          <button class="nav next" aria-label="Siguiente">&#10095;</button>
-        </div>
-      </div>
+/* ===== HEADER / LOGO ===== */
+.header {
+  padding: 1px;
+  margin-top: 1px;
+  text-align: center;
+  color: #ffffff;
+}
 
-      <!-- BOTONES 4 ANCHOS -->
-      <!-- Cuando tengas las URLs reales, reemplaza los href="#"
-           y agrega target="_blank" rel="noopener" a los enlaces externos -->
-      <div class="actions2">
-        <a href="#" class="action2 btn">
-          <img src="img/simbolos/pdf3.png" alt="Catálogo" class="social-icon">
-          <span>Catálogo PDF</span>
-        </a>
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  object-fit: cover;
+}
 
-        <a href="https://wa.me/51926845127" class="action2" target="_blank" rel="noopener">
-          <img src="img/simbolos/whatsapp2.png" alt="WhatsApp" class="social-icon">
-          <span>926 845 127</span>
-        </a>
+.header h1 {
+  margin: 1px 0 2px;
+  font-size: 22px;
+  color: #ffffff;
+}
 
-        <a href="#" class="action2">
-          <img src="img/simbolos/facebook1.png" alt="Facebook" class="social-icon">
-          <span>Facebook</span>
-        </a>
+/* ===== SLIDER ===== */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+}
 
-        <a href="#" class="action2">
-          <img src="img/simbolos/inst.png" alt="Instagram" class="social-icon">
-          <span>Instagram</span>
-        </a>
-      </div>
-      <!-- FIN BOTONES 4 ANCHOS -->
+.slider {
+  position: relative;
+}
 
-      <footer class="footer">
-        <div class="footer-social">
-          <a href="#" aria-label="Acerca de">
-            <img src="img/simbolos/acerca1.png" alt="Acerca" class="social-icon">
-          </a>
+.slider-window {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 5px;
+}
 
-          <a href="#" aria-label="Ubicación">
-            <img src="img/simbolos/mapa4.png" alt="Mapa" class="social-icon">
-          </a>
+.slider-track {
+  display: flex;
+}
 
-          <a href="#" aria-label="Compartir">
-            <img src="img/simbolos/compartir1.png" alt="Compartir" class="social-icon">
-          </a>
-        </div>
+.slider-track img {
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+}
 
-        <p>&lt;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;TECNOLOGÍA A PEDIDO&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;</p>
-      </footer>
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: transparent;
+  cursor: pointer;
+}
 
-    </div>
-  </div>
-  <!-- FIN ESTILO CELULAR -->
+.prev { left: -5px; }
+.next { right: -5px; }
 
-  <!-- ENLACE JS -->
-  <script src="js/app.js"></script>
-</body>
+/* ===== BOTONES ANCHOS ===== */
+.actions2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 10px 20px 20px;
+  margin-top: 5px;
+}
 
-</html>
+.action2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 5px 20px;
+  overflow: hidden; /* para que el brillo no se salga del botón */
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  background-color: rgb(34, 32, 32);
+  -webkit-tap-highlight-color: transparent; /* quita el flash gris en móviles */
+  transition: transform .25s ease, box-shadow .25s ease,
+              background-color .25s ease, border-color .25s ease;
+}
+
+.action2 span {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Icono fijo a la izquierda */
+.action2 .social-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Brillo que cruza el botón */
+.action2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .25), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* HOVER (solo dispositivos con mouse) */
+@media (hover: hover) {
+  .action2:hover {
+    transform: translateY(-4px) scale(1.02);
+    background-color: rgb(48, 46, 46);
+    border-color: var(--primary);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .45),
+                0 0 14px rgba(37, 211, 102, .35);
+  }
+
+  .action2:hover::after {
+    left: 130%;
+    transition: left .7s ease;
+  }
+
+  .action2:hover .social-icon {
+    transform: translateY(-50%) scale(1.15) rotate(-8deg);
+  }
+}
+
+/* PULSADO (mouse y dedo en celular) */
+.action2:active {
+  transform: scale(0.96);
+  background-color: rgb(20, 20, 20);
+  border-color: var(--primary);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+  transition-duration: .08s;
+}
+
+/* Accesibilidad con teclado */
+.action2:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ===== BOTÓN CON REBOTE (Catálogo PDF) ===== */
+.btn {
+  color: #ffffff;
+  animation: bouncy 3s infinite linear;
+}
+
+/* Al interactuar, se detiene el rebote para que se vea el efecto hover/active */
+.btn:hover,
+.btn:active {
+  animation: none;
+}
+
+@keyframes bouncy {
+  0%, 40%, 50%, 100% { transform: translateY(0); }
+  43% { transform: translateY(-15px); }
+  46% { transform: translateY(0); }
+  48% { transform: translateY(-7px); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  padding: 1px 0;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/* ===== ICONOS (.png) ===== */
+.social-icon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0.9);
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Hover de los iconos del footer (los de .action2 se controlan arriba) */
+.footer-social .social-icon:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .phone {
+    border-radius: 2rem;
+    box-shadow: 0 10px 10px rgba(187, 184, 184, 0.45);
+    margin: 1rem;
+    border: 3px solid #190af0;
+  }
+}
+
+@media (min-width: 1600px) {
+  body {
+    padding: 40px;
+  }
+
+  .contorno {
+    padding: 1rem;
+  }
+}
+
+/* ===== ACCESIBILIDAD: reducir movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .weather {
+    animation: none;
+  }
+
+  .action2,
+  .action2::after,
+  .action2 .social-icon {
+    transition: none;
+  }
+}
