@@ -281,10 +281,56 @@ body {
 }
 
 /* Hover de los iconos del footer (los de .action2 se controlan arriba) */
-.footer-social .social-icon:hover {
-  transform: scale(1.15);
-  filter: brightness(1.2);
+
+/* ===== BOTONES DEL FOOTER ===== */
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent; /* quita la sombra cuadrada en móviles */
+  outline: none;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
+
+.footer-social a .social-icon {
+  border-radius: 50%;
+  transition: transform .25s ease, filter .25s ease;
+}
+
+/* HOVER (solo dispositivos con mouse) */
+@media (hover: hover) {
+  .footer-social a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .45),
+                0 0 14px rgba(37, 211, 102, .35);
+  }
+
+  .footer-social a:hover .social-icon {
+    transform: scale(1.12) rotate(-8deg);
+    filter: brightness(1.2);
+  }
+}
+
+/* PULSADO (mouse y dedo en celular) */
+.footer-social a:active {
+  transform: scale(0.88);
+  box-shadow: 0 0 12px rgba(37, 211, 102, .5);
+  transition-duration: .08s;
+}
+
+.footer-social a:active .social-icon {
+  filter: brightness(1.3);
+}
+
+/* Accesibilidad con teclado */
+.footer-social a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+
+
 
 /* ===== RESPONSIVE ===== */
 @media (min-width: 768px) {
@@ -315,7 +361,9 @@ body {
 
   .action2,
   .action2::after,
-  .action2 .social-icon {
+  .action2 .social-icon,
+  .footer-social a,
+  .footer-social a .social-icon {
     transition: none;
   }
 }
