@@ -156,10 +156,14 @@ function copyLink(){
 /* WEATHER */
 const tempEl = document.querySelector('.temp');
 const iconEl = document.querySelector('.weather i');
+const faceEl = document.getElementById('weatherFace'); // cara según temperatura
 // const weatherTextEl = document.getElementById('weatherText');
 
 const WEATHER_API =
   'https://api.open-meteo.com/v1/forecast?latitude=-6.7714&longitude=-79.8409&current_weather=true';
+
+// Temperatura a partir de la cual se muestra la cara de calor
+const LIMITE_CALOR = 26;
 
 // function getPeriodoChiclayo() {
 //   const hora = new Date().getHours(); // hora local del navegador (Perú)
@@ -179,14 +183,23 @@ function updateWeather(){
       /* Icono fijo: termómetro */
       iconEl.className = 'fa-solid fa-temperature-empty';
 
-      iconEl.style.color = '#ffffffff'; 
-
+      iconEl.style.color = '#ffffff';
 
       tempEl.textContent = `${t} °C`;
       // weatherTextEl.textContent = getPeriodoChiclayo();
+
+      /* Cara según la temperatura */
+      if (t > LIMITE_CALOR) {
+        faceEl.textContent = '🥵';   // más de 26° → calor
+        faceEl.classList.add('hot');
+      } else {
+        faceEl.textContent = '😊';   // 26° o menos → agradable
+        faceEl.classList.remove('hot');
+      }
     })
     .catch(() => {
       tempEl.textContent = '-- °C';
+      faceEl.textContent = '';
       // weatherTextEl.textContent = 'No disponible';
     });
 }
