@@ -1,6 +1,6 @@
 :root {
   --text: #eaeaf0;
-  --primary: #25d366; /* color de resplandor en los botones (cámbialo por tu marca) */
+  --primary: #25d366; /* color de resplandor en los botones */
 }
 
 * {
@@ -12,7 +12,6 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
-  padding: 0;
   color: var(--text);
   background-image: url("../img/fondo/f4.jpg");
   background-size: cover;
@@ -29,19 +28,12 @@ body {
 
 .contorno {
   width: 100%;
-  max-width: 420px;
   border-radius: 1rem;
   overflow: hidden;
   padding: 0.5rem;
 }
 
 /* ===== CLIMA ===== */
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .weather-wrap {
   display: flex;
   flex-direction: column;
@@ -60,32 +52,20 @@ body {
   font-size: 14px;
 }
 
-.weather i {
-  font-size: 22px;
+.weather-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .weather .temp {
   font-weight: 600;
 }
 
-/* Cara según la temperatura */
-.weather .face {
-  font-size: 26px;
-  line-height: 1;
-  display: inline-block;
-  animation: faceBounce 2s ease-in-out infinite;
-}
-
-/* Cara de calor: se mueve un poco más rápido */
-.weather .face.hot {
-  animation: faceHot 0.8s ease-in-out infinite;
-}
-
 .city {
   margin-top: 4px;
-  font-size: 13px;
-  color: var(--text);
   padding-left: 6px;
+  font-size: 13px;
 }
 
 @keyframes float {
@@ -93,37 +73,24 @@ body {
   50%      { transform: translateY(-3px); }
 }
 
-@keyframes faceBounce {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.12); }
-}
-
-@keyframes faceHot {
-  0%, 100% { transform: scale(1) rotate(0deg); }
-  25%      { transform: scale(1.15) rotate(-6deg); }
-  75%      { transform: scale(1.15) rotate(6deg); }
-}
-
 /* ===== HEADER / LOGO ===== */
 .header {
   padding: 1px;
   margin-top: 1px;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
 }
 
 .avatar {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  border: none;
   object-fit: cover;
 }
 
 .header h1 {
   margin: 1px 0 2px;
   font-size: 22px;
-  color: #ffffff;
 }
 
 /* ===== SLIDER ===== */
@@ -145,13 +112,6 @@ body {
   border-radius: 5px;
 }
 
-.slider-window2 {
-  width: 100%;
-  height: 417px;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
 .slider-track {
   display: flex;
 }
@@ -162,13 +122,7 @@ body {
   flex-shrink: 0;
 }
 
-.slider-track2 img {
-  width: 100%;
-  height: 410px;
-  flex-shrink: 0;
-  border-radius: 1rem;
-}
-
+/* Botones invisibles: solo áreas clicables */
 .nav {
   position: absolute;
   top: 50%;
@@ -199,16 +153,14 @@ body {
   justify-content: center;
   min-height: 60px;
   padding: 5px 20px;
-  overflow: hidden; /* para que el brillo no se salga del botón */
+  overflow: hidden; /* para que el brillo no se salga */
   color: whitesmoke;
   text-decoration: none;
   text-align: center;
-  font-size: 15px;
-  font-weight: 600;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   border-radius: 30px;
   background-color: rgb(34, 32, 32);
-  -webkit-tap-highlight-color: transparent; /* quita el flash gris en móviles */
+  -webkit-tap-highlight-color: transparent;
   transition: transform .25s ease, box-shadow .25s ease,
               background-color .25s ease, border-color .25s ease;
 }
@@ -240,7 +192,6 @@ body {
   pointer-events: none;
 }
 
-/* HOVER (solo dispositivos con mouse) */
 @media (hover: hover) {
   .action2:hover {
     transform: translateY(-4px) scale(1.02);
@@ -260,7 +211,6 @@ body {
   }
 }
 
-/* PULSADO (mouse y dedo en celular) */
 .action2:active {
   transform: scale(0.96);
   background-color: rgb(20, 20, 20);
@@ -269,7 +219,6 @@ body {
   transition-duration: .08s;
 }
 
-/* Accesibilidad con teclado */
 .action2:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 3px;
@@ -277,11 +226,9 @@ body {
 
 /* ===== BOTÓN CON REBOTE (Catálogo PDF) ===== */
 .btn {
-  color: #ffffff;
   animation: bouncy 3s infinite linear;
 }
 
-/* Al interactuar, se detiene el rebote para que se vea el efecto hover/active */
 .btn:hover,
 .btn:active {
   animation: none;
@@ -296,10 +243,8 @@ body {
 
 /* ===== FOOTER ===== */
 .footer {
-  color: #ffffff;
-  border-radius: 20px;
+  color: #fff;
   text-align: center;
-  padding: 0px 0;
 }
 
 .footer-social {
@@ -310,33 +255,27 @@ body {
   flex-wrap: wrap;
 }
 
-/* ===== ICONOS (.png) ===== */
 .social-icon {
   width: 40px;
   height: 40px;
   filter: brightness(0.9);
-  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  transition: transform .3s ease, opacity .3s ease, filter .3s ease;
 }
 
-/* Hover de los iconos del footer (los de .action2 se controlan arriba) */
-
-/* ===== BOTONES DEL FOOTER ===== */
 .footer-social a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  -webkit-tap-highlight-color: transparent; /* quita la sombra cuadrada en móviles */
+  -webkit-tap-highlight-color: transparent;
   outline: none;
   transition: transform .25s ease, box-shadow .25s ease;
 }
 
 .footer-social a .social-icon {
   border-radius: 50%;
-  transition: transform .25s ease, filter .25s ease;
 }
 
-/* HOVER (solo dispositivos con mouse) */
 @media (hover: hover) {
   .footer-social a:hover {
     transform: translateY(-4px);
@@ -350,7 +289,6 @@ body {
   }
 }
 
-/* PULSADO (mouse y dedo en celular) */
 .footer-social a:active {
   transform: scale(0.88);
   box-shadow: 0 0 12px rgba(37, 211, 102, .5);
@@ -361,14 +299,10 @@ body {
   filter: brightness(1.3);
 }
 
-/* Accesibilidad con teclado */
 .footer-social a:focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 3px;
 }
-
-
-
 
 /* ===== RESPONSIVE ===== */
 @media (min-width: 768px) {
@@ -381,20 +315,14 @@ body {
 }
 
 @media (min-width: 1600px) {
-  body {
-    padding: 40px;
-  }
-
-  .contorno {
-    padding: 1rem;
-  }
+  body { padding: 40px; }
+  .contorno { padding: 1rem; }
 }
 
 /* ===== ACCESIBILIDAD: reducir movimiento ===== */
 @media (prefers-reduced-motion: reduce) {
   .btn,
-  .weather,
-  .weather .face {
+  .weather {
     animation: none;
   }
 
