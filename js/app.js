@@ -1,224 +1,99 @@
+/* ===== SLIDER (loop infinito) ===== */
 const track = document.querySelector('.slider-track');
-let slides = Array.from(track.children);
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
+let slides = Array.from(track.children);
 let index = 1;
 let slideWidth;
-let autoplayInterval;
 
-/* ===== CLONAR PARA LOOP INFINITO ===== */
 const firstClone = slides[0].cloneNode(true);
 const lastClone = slides[slides.length - 1].cloneNode(true);
-
 firstClone.id = 'first-clone';
 lastClone.id = 'last-clone';
 
 track.appendChild(firstClone);
 track.insertBefore(lastClone, slides[0]);
-
 slides = Array.from(track.children);
 
-/* ===== INICIALIZAR ===== */
 function setPosition() {
   slideWidth = slides[0].clientWidth;
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
+}
+
+function goTo(newIndex) {
+  if (newIndex < 0 || newIndex > slides.length - 1) return;
+  index = newIndex;
+  track.style.transition = 'transform 0.4s ease';
   track.style.transform = `translateX(-${slideWidth * index}px)`;
 }
 
 window.addEventListener('load', setPosition);
 window.addEventListener('resize', setPosition);
 
-/* ===== CONTROLES ===== */
-function moveNext() {
-  if (index >= slides.length - 1) return;
-  index++;
-  track.style.transition = 'transform 0.4s ease';
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
+next.addEventListener('click', () => goTo(index + 1));
+prev.addEventListener('click', () => goTo(index - 1));
 
-function movePrev() {
-  if (index <= 0) return;
-  index--;
-  track.style.transition = 'transform 0.4s ease';
-  track.style.transform = `translateX(-${slideWidth * index}px)`;
-}
-
-next.addEventListener('click', () => {
-  stopAutoplay();
-  moveNext();
-  startAutoplay();
-});
-
-prev.addEventListener('click', () => {
-  stopAutoplay();
-  movePrev();
-  startAutoplay();
-});
-
-/* ===== LOOP INVISIBLE ===== */
+/* Salto invisible al llegar a un clon */
 track.addEventListener('transitionend', () => {
-  if (slides[index].id === 'first-clone') {
-    track.style.transition = 'none';
-    index = 1;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
+  const id = slides[index].id;
+  if (id === 'first-clone') index = 1;
+  else if (id === 'last-clone') index = slides.length - 2;
+  else return;
 
-  if (slides[index].id === 'last-clone') {
-    track.style.transition = 'none';
-    index = slides.length - 2;
-    track.style.transform = `translateX(-${slideWidth * index}px)`;
-  }
+  track.style.transition = 'none';
+  track.style.transform = `translateX(-${slideWidth * index}px)`;
 });
 
-/* ===== AUTOPLAY INFINITO ===== */
-function startAutoplay() {
-  // autoplayInterval = setInterval(moveNext, 3500);
+/* ===== COMPARTIR ===== */
+function copyLink() {
+  navigator.clipboard.writeText(location.href)
+    .then(() => alert('Enlace copiado'));
 }
 
-function stopAutoplay() {
-  clearInterval(autoplayInterval);
-}
+async function sharePage() {
+  const data = { title: 'COMPUGUED', text: 'Catálogo Tecnológico', url: location.href };
 
-startAutoplay();
-
-/* ===== SWIPE / DRAG ===== PARA QUE FUNCIONE CON TACTIL - DEDO CELULAR*/
-// let startX = 0;
-// let isDragging = false;
-
-// track.addEventListener('touchstart', startDrag);
-// track.addEventListener('mousedown', startDrag);
-
-// track.addEventListener('touchmove', dragMove);
-// track.addEventListener('mousemove', dragMove);
-
-// track.addEventListener('touchend', endDrag);
-// track.addEventListener('mouseup', endDrag);
-// track.addEventListener('mouseleave', endDrag);
-
-// function startDrag(e) {
-//   stopAutoplay();
-//   isDragging = true;
-//   startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-// }
-
-// function dragMove(e) {
-//   if (!isDragging) return;
-//   const x = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-//   const diff = startX - x;
-
-//   track.style.transition = 'none';
-//   track.style.transform = `translateX(-${index * slideWidth + diff}px)`;
-// }
-
-// function endDrag(e) {
-//   if (!isDragging) return;
-//   isDragging = false;
-
-//   const endX = e.type.includes('mouse') ? e.pageX : e.changedTouches[0].clientX;
-//   const diff = startX - endX;
-
-//   track.style.transition = 'transform 0.4s ease';
-
-//   if (diff > 50) moveNext();
-//   else if (diff < -50) movePrev();
-//   else setPosition();
-
-//   startAutoplay();
-// }
-
-
-
-/* SHARE COMPARTIR WEB*/
-async function sharePage(){
-  const data = {
-    title:'COMPUGUED',
-    text:'Catálogo Tecnológico',
-    url:location.href
-  };
-
-  if(navigator.share && window.isSecureContext){
-    try{
+  if (navigator.share && window.isSecureContext) {
+    try {
       await navigator.share(data);
-    }catch{
-      copyLink();
+    } catch (err) {
+      if (err.name !== 'AbortError') copyLink(); // si solo canceló, no copiar
     }
-  }else{
+  } else {
     copyLink();
   }
 }
 
-function copyLink(){
-  navigator.clipboard.writeText(location.href)
-    .then(() => alert('Enlace copiado'));
-}
-/* FIN SHARE COMPARTIR WEB*/
+document.getElementById('btn-share').addEventListener('click', (e) => {
+  e.preventDefault();
+  sharePage();
+});
 
-/* WEATHER */
+/* ===== CLIMA ===== */
 const tempEl = document.querySelector('.temp');
-const iconEl = document.querySelector('.weather i');
-// const weatherTextEl = document.getElementById('weatherText');
-
+const iconEl = document.querySelector('.weather-icon');
 const WEATHER_API =
   'https://api.open-meteo.com/v1/forecast?latitude=-6.7714&longitude=-79.8409&current_weather=true';
 
-// function getPeriodoChiclayo() {
-//   const hora = new Date().getHours(); // hora local del navegador (Perú)
+function getWeatherIcon(t) {
+  if (t >= 26) return 'img/clima/calor2.png';
+  if (t < 21)  return 'img/clima/frio.png';
+  return 'img/clima/normal.png'; // 21 a 25
+}
 
-//   if (hora >= 6 && hora < 12) return 'Día';
-//   if (hora >= 12 && hora < 19) return 'Tarde';
-//   return 'Noche';
-// }
-
-function updateWeather(){
+function updateWeather() {
   fetch(WEATHER_API)
     .then(r => r.json())
     .then(d => {
-      const w = d.current_weather;
-      const t = Math.round(w.temperature) + 1; // ← suma fija de +1
-
-      /* Icono fijo: termómetro */
-      iconEl.className = 'fa-solid fa-temperature-empty';
-
-      iconEl.style.color = '#ffffffff'; 
-
-
+      const t = Math.round(d.current_weather.temperature) + 1; // ajuste fijo de +1
       tempEl.textContent = `${t} °C`;
-      // weatherTextEl.textContent = getPeriodoChiclayo();
+      iconEl.src = getWeatherIcon(t);
     })
     .catch(() => {
       tempEl.textContent = '-- °C';
-      // weatherTextEl.textContent = 'No disponible';
     });
 }
 
-/* Carga inicial */
 updateWeather();
-
-/* Actualizar cada 10 minutos */
-setInterval(updateWeather, 600000);
-
-
-/* IR A FACEBOOK */
-function goToFace(){
-  window.location.href = 'https://www.facebook.com/compugued.tec';
-}
-
-/* IR A INSTAGRAM */
-function goToInst(){
-  window.location.href = 'https://www.instagram.com/compugued/';
-}
-
-/* IR A ABOUT */
-function goToAbout(){
-  window.location.href = 'about.html';
-}
-
-/* IR A CUENTAS */
-function goToCuentas(){
-  window.location.href = 'cuentas.html';
-}
-
-/* IR A MAPA */
-function goToMap(){
-  window.location.href = 'mapa.html';
-}
+setInterval(updateWeather, 600000); // cada 10 minutos
