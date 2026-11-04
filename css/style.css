@@ -1,0 +1,350 @@
+:root {
+  --text: #eaeaf0;
+  --primary: #25d366; /* color de resplandor en los botones */
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  color: var(--text);
+  background-image: url("../img/fondo/f4.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.phone {
+  width: 100%;
+  max-width: 420px;
+  overflow: hidden;
+}
+
+.contorno {
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+/* ===== CLIMA ===== */
+.weather-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weather {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 10px 15px;
+  border-radius: 14px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .4);
+  animation: float 3s ease-in-out infinite;
+  font-size: 14px;
+}
+
+.weather-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.weather .temp {
+  font-weight: 600;
+}
+
+.city {
+  margin-top: 4px;
+  padding-left: 6px;
+  font-size: 13px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+/* ===== HEADER / LOGO ===== */
+.header {
+  padding: 1px;
+  margin-top: 1px;
+  text-align: center;
+  color: #fff;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header h1 {
+  margin: 1px 0 2px;
+  font-size: 22px;
+}
+
+/* ===== SLIDER ===== */
+.container {
+  max-width: 420px;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider-window {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.slider-window2 {
+  width: 100%;
+  height: 417px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.slider-track {
+  display: flex;
+}
+
+.slider-track img {
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+}
+
+.slider-track2 img {
+  width: 100%;
+  height: 410px;
+  flex-shrink: 0;
+  border-radius: 1rem;
+}
+
+/* Botones invisibles: solo áreas clicables */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 30px;
+  color: transparent;
+  cursor: pointer;
+}
+
+.prev { left: -5px; }
+.next { right: -5px; }
+
+/* ===== BOTONES ANCHOS ===== */
+.actions2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 5px 20px 20px;
+  margin-top: 5px;
+}
+
+.action2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 5px 20px;
+  overflow: hidden; /* para que el brillo no se salga */
+  color: whitesmoke;
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  background-color: rgb(34, 32, 32);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .25s ease, box-shadow .25s ease,
+              background-color .25s ease, border-color .25s ease;
+}
+
+.action2 span {
+  display: block;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Icono fijo a la izquierda */
+.action2 .social-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Brillo que cruza el botón */
+.action2::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .25), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .action2:hover {
+    transform: translateY(-4px) scale(1.02);
+    background-color: rgb(48, 46, 46);
+    border-color: var(--primary);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .45),
+                0 0 14px rgba(37, 211, 102, .35);
+  }
+
+  .action2:hover::after {
+    left: 130%;
+    transition: left .7s ease;
+  }
+
+  .action2:hover .social-icon {
+    transform: translateY(-50%) scale(1.15) rotate(-8deg);
+  }
+}
+
+.action2:active {
+  transform: scale(0.96);
+  background-color: rgb(20, 20, 20);
+  border-color: var(--primary);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+  transition-duration: .08s;
+}
+
+.action2:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ===== BOTÓN CON REBOTE (Catálogo PDF) ===== */
+.btn {
+  animation: bouncy 3s infinite linear;
+}
+
+.btn:hover,
+.btn:active {
+  animation: none;
+}
+
+@keyframes bouncy {
+  0%, 40%, 50%, 100% { transform: translateY(0); }
+  43% { transform: translateY(-15px); }
+  46% { transform: translateY(0); }
+  48% { transform: translateY(-7px); }
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  color: #fff;
+  text-align: center;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0.9);
+  transition: transform .3s ease, opacity .3s ease, filter .3s ease;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.footer-social a .social-icon {
+  border-radius: 50%;
+}
+
+@media (hover: hover) {
+  .footer-social a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, .45),
+                0 0 14px rgba(37, 211, 102, .35);
+  }
+
+  .footer-social a:hover .social-icon {
+    transform: scale(1.12) rotate(-8deg);
+    filter: brightness(1.2);
+  }
+}
+
+.footer-social a:active {
+  transform: scale(0.88);
+  box-shadow: 0 0 12px rgba(37, 211, 102, .5);
+  transition-duration: .08s;
+}
+
+.footer-social a:active .social-icon {
+  filter: brightness(1.3);
+}
+
+.footer-social a:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 768px) {
+  .phone {
+    border-radius: 2rem;
+    box-shadow: 0 10px 10px rgba(187, 184, 184, 0.45);
+    margin: 1rem;
+    border: 3px solid #190af0;
+  }
+}
+
+@media (min-width: 1600px) {
+  body { padding: 40px; }
+  .contorno { padding: 1rem; }
+}
+
+/* ===== ACCESIBILIDAD: reducir movimiento ===== */
+@media (prefers-reduced-motion: reduce) {
+  .btn,
+  .weather {
+    animation: none;
+  }
+
+  .action2,
+  .action2::after,
+  .action2 .social-icon,
+  .footer-social a,
+  .footer-social a .social-icon {
+    transition: none;
+  }
+}
