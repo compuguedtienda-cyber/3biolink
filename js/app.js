@@ -77,8 +77,8 @@ const WEATHER_API =
   'https://api.open-meteo.com/v1/forecast?latitude=-6.7714&longitude=-79.8409&current_weather=true';
 
 function getWeatherIcon(t) {
-  if (t >= 26) return 'img/clima/calor2.png';
-  if (t < 21)  return 'img/clima/frio.png';
+  if (t >= 30) return 'img/clima/calor.png';
+  if (t < 22)  return 'img/clima/frio.png';
   return 'img/clima/normal.png'; // 21 a 25
 }
 
