@@ -1,112 +1,145 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COMPUGUED | Tecnología</title>
-
-  <link rel="icon" href="img/iconos/logoico.ico">
-
-  <!-- Fuentes -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="COMPUGUED: catálogo de laptops, computadoras, impresoras, accesorios y servicios tecnológicos.">
+  <title>COMPUGUED | Tecnología para lo que necesitas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Open Graph (X/Twitter lo reutiliza) -->
-  <meta property="og:title" content="TECNOLOGÍA">
-  <meta property="og:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://compugued.vercel.app/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="phone">
-    <div class="contorno">
+  <div class="announcement">Tecnología seleccionada · Atención personalizada · Venta bajo pedido</div>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="COMPUGUED inicio">
+      <span class="brand-mark">C<span>G</span></span>
+      <span class="brand-name">COMPUGUED<small>TECNOLOGÍA A TU ALCANCE</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a><a href="#catalogo">Catálogo</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button search-toggle" id="focusSearch" aria-label="Buscar"><span>⌕</span></button>
+      <a class="button button-primary header-whatsapp" id="headerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp <span>↗</span></a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+  </header>
 
-      <!-- CLIMA -->
-      <div class="top-bar">
-        <div class="weather-wrap">
-          <div class="weather">
-            <img src="img/clima/normal.png" alt="Clima" class="weather-icon">
-            <span class="temp">--°C</span>
-          </div>
-          <div class="city">Chiclayo</div>
+  <main id="inicio">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <span class="eyebrow"><i></i> TU CATÁLOGO TECNOLÓGICO</span>
+        <h1>La tecnología correcta para <em>llegar más lejos.</em></h1>
+        <p>Encuentra equipos, accesorios y soluciones tecnológicas. Te asesoramos para elegir lo que realmente necesitas.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#catalogo">Explorar catálogo <span>→</span></a>
+          <a class="text-link" href="#servicios">Conoce nuestros servicios <span>↗</span></a>
         </div>
+        <div class="hero-proof"><span class="proof-icon">✓</span><span><b>Asesoría personalizada</b><small>Atención directa y transparente</small></span></div>
       </div>
-
-      <!-- LOGO -->
-      <div class="header">
-        <img src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED" class="avatar">
-        <h1>C&nbsp;O&nbsp;M&nbsp;P&nbsp;U&nbsp;G&nbsp;U&nbsp;E&nbsp;D</h1>
+      <div class="hero-art">
+        <div class="hero-glow"></div>
+        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1100&q=85" alt="Laptop moderna sobre un escritorio">
+        <div class="floating-note"><span class="note-icon">✦</span><span><b>Elige con confianza</b><small>Te ayudamos a decidir</small></span></div>
+        <div class="hero-index">TECNOLOGÍA / 001</div>
       </div>
+    </section>
 
-      <!-- SLIDER -->
-      <div class="container">
-        <div class="slider">
-          <button class="nav prev" aria-label="Anterior">&#10094;</button>
+    <section class="category-section wrap">
+      <div class="section-heading"><div><span class="eyebrow">EXPLORA</span><h2>¿Qué estás buscando?</h2></div><a class="text-link" href="#catalogo">Ver todo el catálogo →</a></div>
+      <div class="category-grid" id="categoryGrid">
+        <button class="category-card active" data-category="Todos"><span class="category-icon">▦</span><b>Todo</b><small>Ver catálogo</small></button>
+        <button class="category-card" data-category="Laptops"><span class="category-icon">▱</span><b>Laptops</b><small>Estudio y trabajo</small></button>
+        <button class="category-card" data-category="Computadoras"><span class="category-icon">▣</span><b>Computadoras</b><small>Oficina y gamer</small></button>
+        <button class="category-card" data-category="Impresoras"><span class="category-icon">▤</span><b>Impresoras</b><small>Hogar y negocio</small></button>
+        <button class="category-card" data-category="Accesorios"><span class="category-icon">⌨</span><b>Accesorios</b><small>Complementos</small></button>
+        <button class="category-card" data-category="Componentes"><span class="category-icon">◈</span><b>Componentes</b><small>Arma tu equipo</small></button>
+      </div>
+    </section>
 
-          <div class="slider-window">
-            <div class="slider-track">
-              <img src="img/slider/1.png" alt="Promociones de COMPUGUED">
+    <section class="catalog-section" id="catalogo">
+      <div class="wrap">
+        <div class="section-heading catalog-heading"><div><span class="eyebrow">NUESTRO CATÁLOGO</span><h2>Encuentra tu próximo equipo</h2><p>Productos seleccionados para estudiar, trabajar, crear y jugar.</p></div><span class="catalog-count" id="catalogCount">0 productos</span></div>
+        <div class="catalog-toolbar">
+          <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar producto, marca o característica..." aria-label="Buscar productos"><kbd>Buscar</kbd></label>
+          <div class="filters">
+            <select id="categoryFilter" aria-label="Filtrar por categoría"><option value="Todos">Todas las categorías</option></select>
+            <select id="availabilityFilter" aria-label="Filtrar disponibilidad"><option value="Todos">Toda disponibilidad</option><option value="Disponible">Disponible</option><option value="Por pedido">Por pedido</option><option value="Sin stock">Sin stock</option></select>
+            <select id="sortFilter" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="price-asc">Menor precio</option><option value="price-desc">Mayor precio</option><option value="name">Nombre A-Z</option></select>
+          </div>
+        </div>
+        <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        <div class="empty-state hidden" id="emptyState"><span>⌕</span><h3>No encontramos productos</h3><p>Prueba con otra búsqueda o cambia los filtros.</p><button class="button button-outline" id="clearFilters">Limpiar filtros</button></div>
+      </div>
+    </section>
+
+    <section class="custom-build wrap">
+      <div class="build-visual"><img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=1000&q=85" alt="Computadora de escritorio gamer personalizada"></div>
+      <div class="build-copy"><span class="eyebrow">TU EQUIPO, TU DECISIÓN</span><h2>¿Buscas una PC hecha a tu medida?</h2><p>Cuéntanos para qué la necesitas y cuál es tu presupuesto. Te ayudamos a elegir componentes equilibrados para tu trabajo, estudio o gaming.</p><a class="button button-light" id="customWhatsApp" href="#" target="_blank" rel="noopener">Cotizar mi PC <span>↗</span></a></div>
+    </section>
+
+    <section class="services-section wrap" id="servicios">
+      <div class="section-heading"><div><span class="eyebrow">TAMBIÉN TE AYUDAMOS</span><h2>Soluciones tecnológicas</h2><p>Atención práctica para que tus equipos funcionen mejor.</p></div></div>
+      <div class="service-grid">
+        <article class="service-card"><span>⌁</span><h3>Mantenimiento</h3><p>Limpieza, revisión y mantenimiento preventivo de computadoras y laptops.</p><a href="#" class="service-link" data-service="Mantenimiento de equipos">Consultar servicio ↗</a></article>
+        <article class="service-card"><span>⚙</span><h3>Software y configuración</h3><p>Instalación, configuración y optimización de software y sistemas.</p><a href="#" class="service-link" data-service="Software y configuración">Consultar servicio ↗</a></article>
+        <article class="service-card"><span>▣</span><h3>Ensamblaje personalizado</h3><p>Selección y ensamblaje de equipos según tus necesidades y presupuesto.</p><a href="#" class="service-link" data-service="Ensamblaje personalizado">Consultar servicio ↗</a></article>
+      </div>
+    </section>
+
+    <section class="trust-section" id="nosotros"><div class="wrap trust-inner"><div><span class="eyebrow">CONOCE COMPUGUED</span><h2>Más que vender tecnología, te ayudamos a elegir.</h2></div><p>Contamos con experiencia en comercialización de tecnología y creemos que una buena compra comienza entendiendo lo que necesitas. Recibe orientación clara y atención personalizada antes de realizar tu pedido.</p></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-main"><div class="footer-brand"><a class="brand brand-inverse" href="#inicio"><span class="brand-mark">C<span>G</span></span><span class="brand-name">COMPUGUED<small>TECNOLOGÍA A TU ALCANCE</small></span></a><p>Soluciones tecnológicas con asesoría personalizada.</p></div><div><b>Explora</b><a href="#catalogo">Catálogo</a><a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a></div><div><b>Contacto</b><a id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a><a href="#" id="facebookLink" target="_blank" rel="noopener">Facebook</a><a href="#" id="instagramLink" target="_blank" rel="noopener">Instagram</a></div></div><div class="wrap footer-bottom"><span>© <span id="year"></span> COMPUGUED. Todos los derechos reservados.</span><a href="#inicio">Volver arriba ↑</a></div></footer>
+
+  <a class="floating-whatsapp" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">✆</a>
+
+  <button class="admin-entry" id="adminEntry" title="Acceso administrador">⚙</button>
+
+  <div class="modal-backdrop hidden" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+    <div class="admin-modal">
+      <button class="modal-close" id="closeAdmin" aria-label="Cerrar">×</button>
+      <div id="loginView"><span class="eyebrow">ACCESO PRIVADO</span><h2 id="adminTitle">Administración</h2><p>Ingresa para gestionar el catálogo de demostración.</p><form id="loginForm"><label>Contraseña<input type="password" id="adminPassword" autocomplete="current-password" required></label><p class="form-error" id="loginError"></p><button class="button button-primary full-width" type="submit">Ingresar al panel</button></form><small class="demo-warning">Demo local: cambia la contraseña en app.js. No publiques esta autenticación como sistema seguro.</small></div>
+      <div id="adminView" class="hidden">
+        <div class="admin-top"><div><span class="eyebrow">PANEL PRIVADO</span><h2 id="adminTitlePanel">Gestionar catálogo</h2></div><button class="button button-outline button-small" id="logoutButton">Cerrar sesión</button></div>
+        <div class="admin-tabs"><button class="admin-tab active" data-tab="productsTab">Productos</button><button class="admin-tab" data-tab="settingsTab">Configuración</button></div>
+        <section id="productsTab" class="admin-panel">
+          <div class="admin-list-head"><b>Productos registrados</b><button class="button button-primary button-small" id="newProductButton">+ Nuevo producto</button></div>
+          <div id="adminProductList" class="admin-product-list"></div>
+          <form id="productForm" class="admin-form hidden">
+            <h3 id="productFormTitle">Nuevo producto</h3><input type="hidden" id="productId">
+            <div class="form-grid">
+              <label>Nombre<input id="productName" required maxlength="90"></label>
+              <label>Código<input id="productCode" maxlength="30"></label>
+              <label>Categoría<select id="productCategory"><option>Laptops</option><option>Computadoras</option><option>Impresoras</option><option>Accesorios</option><option>Componentes</option></select></label>
+              <label>Marca<input id="productBrand" maxlength="40"></label>
+              <label>Precio (S/)<input id="productPrice" type="number" min="0" step="0.01"></label>
+              <label>Disponibilidad<select id="productStatus"><option>Disponible</option><option>Por pedido</option><option>Sin stock</option></select></label>
+              <label class="span-two">URL de imagen<input id="productImage" type="url" placeholder="https://..."></label>
+              <label class="span-two">Descripción<textarea id="productDescription" rows="3" maxlength="500"></textarea></label>
+              <label class="span-two">Especificaciones<textarea id="productSpecs" rows="3" placeholder="Ej.: Core i5 · 16 GB RAM · SSD 512 GB"></textarea></label>
             </div>
-          </div>
-
-          <button class="nav next" aria-label="Siguiente">&#10095;</button>
-        </div>
+            <div class="form-checks"><label><input type="checkbox" id="productFeatured"> Producto destacado</label><label><input type="checkbox" id="productPublished" checked> Publicado en la web</label></div>
+            <div class="form-actions"><button type="button" class="button button-outline" id="cancelProduct">Cancelar</button><button type="submit" class="button button-primary">Guardar producto</button></div>
+          </form>
+        </section>
+        <section id="settingsTab" class="admin-panel hidden">
+          <form id="settingsForm" class="admin-form settings-form">
+            <h3>Datos de contacto</h3><p class="admin-hint">Reemplaza estos datos de ejemplo por los canales oficiales de COMPUGUED.</p>
+            <label>WhatsApp con código de país, solo números<input id="settingWhatsApp" placeholder="519XXXXXXXX"></label>
+            <label>Enlace de Facebook<input id="settingFacebook" type="url" placeholder="https://facebook.com/..."></label>
+            <label>Enlace de Instagram<input id="settingInstagram" type="url" placeholder="https://instagram.com/..."></label>
+            <button class="button button-primary" type="submit">Guardar configuración</button>
+          </form>
+          <div class="admin-note"><b>Importante:</b> esta versión guarda cambios en el almacenamiento local de este navegador. Para administrar desde varios dispositivos y publicar cambios para todos los visitantes, conectaremos una base de datos y autenticación en el backend.</div>
+        </section>
       </div>
-
-      <!-- BOTONES -->
-      <div class="actions2">
-        <a href="#" class="action2 btn" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/pdf3.png" alt="Catálogo" class="social-icon">
-          <span>Catálogo PDF</span>
-        </a>
-
-        <a href="https://wa.me/51926845127?text=Hola%20vengo%20desde%20tu%20WebApp" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/whatsapp2.png" alt="WhatsApp" class="social-icon">
-          <span>926 845 127</span>
-        </a>
-
-        <a href="https://www.facebook.com/compugued.tec/?locale=es_LA" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/facebook1.png" alt="Facebook" class="social-icon">
-          <span>Facebook</span>
-        </a>
-
-        <a href="https://www.instagram.com/compugued/?hl=es-la" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/inst.png" alt="Instagram" class="social-icon">
-          <span>Instagram</span>
-        </a>
-      </div>
-
-      <footer class="footer">
-        <div class="footer-social">
-          <a href="about.html" aria-label="Acerca de">
-            <img src="img/simbolos/acerca1.png" alt="Acerca" class="social-icon">
-          </a>
-
-          <a href="mapa.html" target="_blank" rel="noopener noreferrer" aria-label="Mapa">
-            <img src="img/simbolos/mapa4.png" alt="Mapa" class="social-icon">
-          </a>
-
-          <a href="#" id="btn-share" aria-label="Compartir">
-            <img src="img/simbolos/compartir1.png" alt="Compartir" class="social-icon">
-          </a>
-        </div>
-
-        <p>&lt;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;TECNOLOGÍA A PEDIDO&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;</p>
-      </footer>
-
     </div>
   </div>
-
-  <script src="js/app.js"></script>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
 </body>
-
 </html>
