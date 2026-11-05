@@ -1,112 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>COMPUGUED | Tecnología</title>
-
-  <link rel="icon" href="img/iconos/logoico.ico">
-
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
-
-  <!-- Open Graph (X/Twitter lo reutiliza) -->
-  <meta property="og:title" content="TECNOLOGÍA">
-  <meta property="og:description" content="Asesoría y Venta de Laptops, Computadoras, Impresoras, Periféricos y Accesorios Tecnológicos de Calidad. También contamos con Servicio Técnico">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://compugued.vercel.app/">
-  <meta property="og:image" content="https://raw.githubusercontent.com/compuguedtienda-cyber/rep_compugued/refs/heads/main/img/logo/logolink.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Compugued · Tecnología a pedido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-  <div class="phone">
-    <div class="contorno">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200Zm4.500-6.100c-.2-.1-1.500-.7-1.700-.8-.2-.1-.4-.1-.6.100l-.8 1c-.1.200-.3.200-.5.100a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.300 3 3 0 0 0-.9 2.200c0 1.300.9 2.500 1 2.700.1.200 1.800 2.800 4.400 3.900 1.600.7 2.300.8 3.100.6.500-.1 1.500-.6 1.700-1.200.2-.6.200-1.100.2-1.200-.100-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="flip" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 0 1 15.500-6.200L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.500 6.200L3 16M3 21v-5h5"/></symbol>
+</svg>
 
-      <!-- CLIMA -->
-      <div class="top-bar">
-        <div class="weather-wrap">
-          <div class="weather">
-            <img src="img/clima/normal.png" alt="Clima" class="weather-icon">
-            <span class="temp">--°C</span>
-          </div>
-          <div class="city">Chiclayo</div>
-        </div>
-      </div>
-
-      <!-- LOGO -->
-      <div class="header">
-        <img src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED" class="avatar">
-        <h1>C&nbsp;O&nbsp;M&nbsp;P&nbsp;U&nbsp;G&nbsp;U&nbsp;E&nbsp;D</h1>
-      </div>
-
-      <!-- SLIDER -->
-      <div class="container">
-        <div class="slider">
-          <button class="nav prev" aria-label="Anterior">&#10094;</button>
-
-          <div class="slider-window">
-            <div class="slider-track">
-              <img src="img/slider/1.png" alt="Promociones de COMPUGUED">
-            </div>
-          </div>
-
-          <button class="nav next" aria-label="Siguiente">&#10095;</button>
-        </div>
-      </div>
-
-      <!-- BOTONES -->
-      <div class="actions2">
-        <a href="#" class="action2 btn" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/pdf3.png" alt="Catálogo" class="social-icon">
-          <span>Catálogo PDF</span>
-        </a>
-
-        <a href="https://wa.me/51926845127?text=Hola%20vengo%20desde%20tu%20WebApp" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/whatsapp2.png" alt="WhatsApp" class="social-icon">
-          <span>926 845 127</span>
-        </a>
-
-        <a href="https://www.facebook.com/compugued.tec/?locale=es_LA" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/facebook1.png" alt="Facebook" class="social-icon">
-          <span>Facebook</span>
-        </a>
-
-        <a href="https://www.instagram.com/compugued/?hl=es-la" class="action2" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/inst.png" alt="Instagram" class="social-icon">
-          <span>Instagram</span>
-        </a>
-      </div>
-
-      <footer class="footer">
-        <div class="footer-social">
-          <a href="about.html" aria-label="Acerca de">
-            <img src="img/simbolos/acerca1.png" alt="Acerca" class="social-icon">
-          </a>
-
-          <a href="mapa.html" target="_blank" rel="noopener noreferrer" aria-label="Mapa">
-            <img src="img/simbolos/mapa4.png" alt="Mapa" class="social-icon">
-          </a>
-
-          <a href="#" id="btn-share" aria-label="Compartir">
-            <img src="img/simbolos/compartir1.png" alt="Compartir" class="social-icon">
-          </a>
-        </div>
-
-        <p>&lt;&lt;&lt;&nbsp;&nbsp;&nbsp;&nbsp;TECNOLOGÍA A PEDIDO&nbsp;&nbsp;&nbsp;&nbsp;&gt;&gt;&gt;</p>
-      </footer>
-
+<main class="wrap">
+ <div class="panel">
+  <header>
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.600" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="12" width="36" height="26" rx="6"/><path d="M17 12l2.500-4h9L31 12"/><circle cx="24" cy="25" r="8"/><path d="M20 22a5 5 0 0 1 4-2"/></svg>
     </div>
+    <div>
+      <h1>Compugued</h1>
+      <p class="sub">Tecnología a pedido</p>
+    </div>
+  </header>
+
+  <h2 class="tag">Equipos que impulsan<br>tus ideas</h2>
+  <p class="hint">Toca una tarjeta para ver qué ofrecemos</p>
+
+  <section class="grid" id="grid">
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Laptops. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="16" width="60" height="42" rx="5" fill="#13244f"/><rect x="22" y="20" width="52" height="34" rx="2" fill="#2f7dff"/><path d="M22 54l20-18 14 12 8-7 10 13v0H22z" fill="#8fc2ff" opacity=".7"/><path d="M8 62h80l-6 10a5 5 0 0 1-4 2H18a5 5 0 0 1-4-2z" fill="#b8c4de"/><rect x="38" y="63" width="20" height="3" rx="1.500" fill="#7d8bab"/></svg>
+      <b>Laptops</b><span>Para estudio, trabajo y gaming</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>Tu laptop ideal</h3>
+      <ul><li>Para clases, oficina o juegos</li><li>Te asesoramos según tu presupuesto</li><li>Traemos el modelo que buscas</li></ul>
+      <a href="#" data-msg="Hola Compugued, quiero cotizar una laptop"><svg><use href="#wa"/></svg>Cotizar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Computadoras. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="14" y="10" width="34" height="76" rx="5" fill="#13244f"/><rect x="19" y="16" width="14" height="64" rx="3" fill="#1d3a86"/><rect x="36" y="16" width="3" height="64" rx="1.500" fill="#b24bff"/><circle cx="26" cy="36" r="7" fill="#2f7dff"/><circle cx="26" cy="60" r="7" fill="#25e0ff"/><rect x="56" y="22" width="28" height="64" rx="5" fill="#0d1b3e"/><rect x="62" y="28" width="3" height="52" rx="1.500" fill="#ff4fa3"/><rect x="69" y="28" width="9" height="52" rx="2" fill="#1d3a86"/></svg>
+      <b>Computadoras</b><span>Ensamble personalizado</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>Armada a tu medida</h3>
+      <ul><li>Tú eliges procesador, RAM y gráfica</li><li>Ensamble y pruebas incluidos</li><li>Para oficina, diseño o gaming</li></ul>
+      <a href="#" data-msg="Hola Compugued, quiero cotizar una computadora ensamblada"><svg><use href="#wa"/></svg>Cotizar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Impresoras. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="26" y="12" width="44" height="22" rx="2" fill="#dfe6f7"/><rect x="10" y="30" width="76" height="34" rx="8" fill="#13244f"/><rect x="20" y="52" width="56" height="26" rx="2" fill="#fff" stroke="#b8c4de" stroke-width="2"/><rect x="26" y="58" width="12" height="4" fill="#ff4f6d"/><rect x="40" y="58" width="12" height="4" fill="#25c4ff"/><rect x="54" y="58" width="12" height="4" fill="#ffd23f"/><circle cx="74" cy="40" r="3" fill="#25e07a"/></svg>
+      <b>Impresoras</b><span>Calidad y rendimiento</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>Imprime sin dolor</h3>
+      <ul><li>Tinta continua y multifuncionales</li><li>Opciones para hogar y negocio</li><li>Te ayudamos a elegir</li></ul>
+      <a href="#" data-msg="Hola Compugued, quiero cotizar una impresora"><svg><use href="#wa"/></svg>Cotizar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Accesorios. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><path d="M22 52V44a24 24 0 0 1 48 0v8" fill="none" stroke="#13244f" stroke-width="6" stroke-linecap="round"/><rect x="14" y="48" width="14" height="22" rx="6" fill="#1d3a86"/><rect x="64" y="48" width="14" height="22" rx="6" fill="#1d3a86"/><rect x="38" y="62" width="30" height="26" rx="14" fill="#e9eefb" stroke="#13244f" stroke-width="3"/><path d="M53 62v10" stroke="#13244f" stroke-width="3"/><rect x="6" y="76" width="22" height="12" rx="6" fill="#2f7dff"/></svg>
+      <b>Accesorios</b><span>Todo lo que necesitas</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>Completa tu setup</h3>
+      <ul><li>Audífonos, mouse y teclados</li><li>Webcams, parlantes y cables</li><li>Gaming y oficina</li></ul>
+      <a href="#" data-msg="Hola Compugued, quiero cotizar accesorios"><svg><use href="#wa"/></svg>Cotizar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Servicio técnico. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><g fill="#13244f"><circle cx="48" cy="48" r="26"/><rect x="42" y="12" width="12" height="14" rx="2"/><rect x="42" y="70" width="12" height="14" rx="2"/><rect x="12" y="42" width="14" height="12" rx="2"/><rect x="70" y="42" width="14" height="12" rx="2"/></g><circle cx="48" cy="48" r="12" fill="var(--panel)"/><path d="M30 78L66 30" stroke="#2f7dff" stroke-width="7" stroke-linecap="round"/></svg>
+      <b>Servicio Técnico</b><span>Reparación y mantenimiento</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>De vuelta a la vida</h3>
+      <ul><li>Limpieza y cambio de pasta térmica</li><li>Formateo y optimización</li><li>Mejoras de RAM y disco SSD</li></ul>
+      <a href="#" data-msg="Hola Compugued, necesito servicio técnico para mi equipo"><svg><use href="#wa"/></svg>Consultar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Licencias y software. Toca para ver detalles">
+    <div class="inner">
+     <div class="face front">
+      <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
+      <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="8" y="30" width="34" height="34" rx="6" fill="#185abd"/><text x="25" y="55" font-size="22" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">W</text><rect x="46" y="14" width="34" height="34" rx="6" fill="#107c41"/><text x="63" y="39" font-size="22" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">X</text><rect x="38" y="50" width="34" height="34" rx="6" fill="#d24726"/><text x="55" y="75" font-size="22" font-weight="800" fill="#fff" text-anchor="middle" font-family="sans-serif">P</text></svg>
+      <b>Licencias y Software</b><span>Originales y seguras</span>
+     </div>
+     <div class="face back" aria-hidden="true">
+      <h3>Software legítimo</h3>
+      <ul><li>Windows y Microsoft Office</li><li>Antivirus y programas</li><li>Instalación y activación</li></ul>
+      <a href="#" data-msg="Hola Compugued, quiero cotizar licencias de software"><svg><use href="#wa"/></svg>Cotizar</a>
+      <i class="bar"></i>
+     </div>
+    </div>
+   </div>
+
+  </section>
+
+  <a class="cta" id="cta" href="#" data-msg="Hola Compugued, quiero solicitar una cotización"><svg><use href="#wa"/></svg>Solicita tu cotización</a>
+
+  <nav class="social" aria-label="Redes sociales">
+    <a href="https://www.facebook.com/compugued.tec/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.600 2 14.400 2 11.800 2 10 3.600 10 6.400V8H7v3.500h3V22h4V11.500h2.800L17.300 8z"/></svg></a>
+  </nav>
+
+  <div class="loc">
+    <b><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a7 7 0 0 0-7 7c0 5.200 7 13 7 13s7-7.800 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"/></svg>Chiclayo - Perú</b>
+    <small>Venta solo a pedido</small>
   </div>
+ </div>
+</main>
 
-  <script src="js/app.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
