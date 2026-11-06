@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -27,15 +27,8 @@
     </div>
   </header>
 
-  <!-- <h2 class="tag">Equipos que impulsan<br>tus ideas</h2> -->
-  <!-- <p class="hint">Toca una tarjeta para ver qué ofrecemos</p> -->
-
-  <nav class="social" aria-label="Redes sociales">
-    <a href="https://www.facebook.com/compugued.tec/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.600 2 14.400 2 11.800 2 10 3.600 10 6.400V8H7v3.500h3V22h4V11.500h2.800L17.300 8z"/></svg></a>
-    <a href="https://www.facebook.com/compugued.tec/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.600 2 14.400 2 11.800 2 10 3.600 10 6.400V8H7v3.500h3V22h4V11.500h2.800L17.300 8z"/></svg></a>
-    <a href="https://www.facebook.com/compugued.tec/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 8V6.500c0-.7.200-1.100 1.200-1.100H17V2.200C16.700 2.200 15.600 2 14.400 2 11.800 2 10 3.600 10 6.400V8H7v3.500h3V22h4V11.500h2.800L17.300 8z"/></svg></a>
-  </nav>
-
+ <h2 class="tag">Buscas lo mejor, consigo lo mejor</h2>
+   <p class="hint">Toca una tarjeta para ver qué ofrecemos</p>
 
   <section class="grid" id="grid">
 
@@ -44,7 +37,9 @@
      <div class="face front">
       <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
       <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="18" y="16" width="60" height="42" rx="5" fill="#13244f"/><rect x="22" y="20" width="52" height="34" rx="2" fill="#2f7dff"/><path d="M22 54l20-18 14 12 8-7 10 13v0H22z" fill="#8fc2ff" opacity=".7"/><path d="M8 62h80l-6 10a5 5 0 0 1-4 2H18a5 5 0 0 1-4-2z" fill="#b8c4de"/><rect x="38" y="63" width="20" height="3" rx="1.500" fill="#7d8bab"/></svg>
-      <b>Laptops</b><span>Para estudio, trabajo y gaming</span>
+      <b>Laptops</b>
+      <b>Computadoras</b>
+      <!-- <span>Para estudio, trabajo y gaming</span> -->
      </div>
      <div class="face back" aria-hidden="true">
       <h3>Tu laptop ideal</h3>
@@ -76,7 +71,9 @@
      <div class="face front">
       <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
       <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><rect x="26" y="12" width="44" height="22" rx="2" fill="#dfe6f7"/><rect x="10" y="30" width="76" height="34" rx="8" fill="#13244f"/><rect x="20" y="52" width="56" height="26" rx="2" fill="#fff" stroke="#b8c4de" stroke-width="2"/><rect x="26" y="58" width="12" height="4" fill="#ff4f6d"/><rect x="40" y="58" width="12" height="4" fill="#25c4ff"/><rect x="54" y="58" width="12" height="4" fill="#ffd23f"/><circle cx="74" cy="40" r="3" fill="#25e07a"/></svg>
-      <b>Impresoras</b><span>Calidad y rendimiento</span>
+      <b>Impresoras</b>
+      <b>Accesorios</b>
+      
      </div>
      <div class="face back" aria-hidden="true">
       <h3>Imprime sin dolor</h3>
@@ -87,7 +84,7 @@
     </div>
    </div>
 
-   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Accesorios. Toca para ver detalles">
+   <!-- <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Accesorios. Toca para ver detalles">
     <div class="inner">
      <div class="face front">
       <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
@@ -101,14 +98,16 @@
       <i class="bar"></i>
      </div>
     </div>
-   </div>
+   </div> -->
 
    <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Servicio técnico. Toca para ver detalles">
     <div class="inner">
      <div class="face front">
       <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
       <svg class="ico" viewBox="0 0 96 96" aria-hidden="true"><g fill="#13244f"><circle cx="48" cy="48" r="26"/><rect x="42" y="12" width="12" height="14" rx="2"/><rect x="42" y="70" width="12" height="14" rx="2"/><rect x="12" y="42" width="14" height="12" rx="2"/><rect x="70" y="42" width="14" height="12" rx="2"/></g><circle cx="48" cy="48" r="12" fill="var(--panel)"/><path d="M30 78L66 30" stroke="#2f7dff" stroke-width="7" stroke-linecap="round"/></svg>
-      <b>Servicio Técnico</b><span>Reparación y mantenimiento</span>
+      <b>Servicio Técnico</b>
+      <b>Licencias y Software</b>
+      <!-- <span>Reparación y mantenimiento</span> -->
      </div>
      <div class="face back" aria-hidden="true">
       <h3>De vuelta a la vida</h3>
@@ -119,7 +118,7 @@
     </div>
    </div>
 
-   <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Licencias y software. Toca para ver detalles">
+   <!-- <div class="card" role="button" tabindex="0" aria-pressed="false" aria-label="Licencias y software. Toca para ver detalles">
     <div class="inner">
      <div class="face front">
       <svg class="flipmark" aria-hidden="true"><use href="#flip"/></svg>
@@ -133,7 +132,7 @@
       <i class="bar"></i>
      </div>
     </div>
-   </div>
+   </div> -->
 
   </section>
 
@@ -152,6 +151,6 @@
  </div>
 </main>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
