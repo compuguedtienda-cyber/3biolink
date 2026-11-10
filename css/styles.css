@@ -55,7 +55,7 @@ header{display:flex;align-items:center;gap:14px;justify-content:center}
   color: whitesmoke;
   text-decoration: none;
   text-align: center;
-  border: 2px solid #fff;
+  border: 2px solid #292cccd3;
   border-radius: 30px;
   background-color: rgb(34, 32, 32);
   -webkit-tap-highlight-color: transparent;
@@ -65,7 +65,7 @@ header{display:flex;align-items:center;gap:14px;justify-content:center}
 
 .action2 span {
   display: block;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: 600;
 }
 
@@ -286,6 +286,13 @@ h1{margin:0;font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1}
   .back h3{font-size:1.05rem}.back ul{font-size:.85rem}.back a{font-size:.85rem}
   .front b{font-size:1.1rem}.front span{font-size:.82rem}
   .cta{max-width:420px;margin-inline:auto}
+
+  .action2{
+  width: 50%; 
+  justify-self: center; 
+}
+
+
 }
 /* Laptop / monitor */
 @media (min-width:1100px){
@@ -293,6 +300,7 @@ h1{margin:0;font-size:2rem;font-weight:800;letter-spacing:-.03em;line-height:1}
   .card{height:250px}
   .ico{width:110px;height:110px}
   .tag{font-size:2rem}
+  
 }
 @media (min-width:1800px){
   html{font-size:120%}
