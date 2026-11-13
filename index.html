@@ -2,156 +2,215 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <!-- viewport-fit=cover: aprovecha toda la pantalla del celular -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <!-- Fuerza SIEMPRE el tema claro (evita que el navegador oscurezca la página) -->
+  <meta name="color-scheme" content="only light">
   <title>Compugued · Tecnología</title>
+
+  <!-- Fuente de Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- Icono de "girar tarjeta" (se reutiliza en cada tarjeta con <use href="#icono-girar">) -->
+  <!-- Icono reutilizable "girar" (se usa en cada tarjeta con <use href="#icono-girar">) -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="icono-girar" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 0 1 15.500-6.200L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.500 6.200L3 16M3 21v-5h5"/>
+      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/>
     </symbol>
   </svg>
 
-  <!-- CONTENEDOR GENERAL (centra y limita el ancho de la web) -->
-  <main class="contenedor-web">
+  <!-- =====================================================================
+       APP: contenedor general (limita el ancho máximo de la webapp)
+       ===================================================================== -->
+  <main class="app">
 
-    <!-- PANEL (caja blanca principal) -->
+    <!-- ===================================================================
+         PANEL: caja principal blanca que contiene todo
+         =================================================================== -->
     <div class="panel">
 
-      <!-- Cabecera: logo + nombre -->
+      <!-- ===== CABECERA: logo + nombre ===== -->
       <header class="cabecera">
-        <img src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED" class="cabecera__logo">
+        <!-- Cambia la imagen del logo aquí -->
+        <img class="cabecera-logo" src="img/logo/logofondoazul.png" alt="Logo de COMPUGUED">
+        <!-- Nombre y eslogan (agrupados uno debajo del otro) -->
         <div>
-          <h1 class="cabecera__titulo">COMPUGUED</h1>
-          <p class="cabecera__subtitulo">Tecnología a pedido</p>
+          <h1 class="cabecera-titulo">COMPUGUED</h1>
+          <p class="cabecera-subtitulo">Tecnología a pedido</p>
         </div>
       </header>
 
-      <h2 class="lema">Buscas lo mejor, consigo lo mejor</h2>
-      <p class="ayuda">Toca una tarjeta para ver qué ofrecemos</p>
+      <h2 class="titulo-principal">Buscas lo mejor, consigo lo mejor</h2>
+      <p class="texto-ayuda">Toca una tarjeta para ver qué ofrecemos</p>
 
-      <!-- GRID (contenedor de las 4 tarjetas) -->
+      <!-- ===================================================================
+           GRID: cuadrícula que contiene las 4 tarjetas
+           Para agregar una tarjeta: copia y pega un bloque <div class="tarjeta">…</div>
+           =================================================================== -->
       <section class="grid-tarjetas">
 
-        <!-- TARJETA 1: Laptops -->
+        <!-- ===== TARJETA 1: LAPTOPS ===== -->
         <div class="tarjeta" role="button" tabindex="0" aria-pressed="false" aria-label="Laptops. Toca para ver detalles">
-          <div class="tarjeta__giro">
+          <div class="tarjeta-giro">
+
+            <!-- Cara frontal (lo que se ve primero) -->
             <div class="cara cara-frontal">
-              <svg class="tarjeta__marca-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
-              <img class="tarjeta__icono" src="img/lineas/laptop.png" alt="" width="96" height="96" decoding="async">
-              <b class="tarjeta__titulo">Laptops</b>
+              <svg class="tarjeta-indicador-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
+              <img class="tarjeta-icono" src="img/lineas/laptop.png" alt="" width="96" height="96" decoding="async">
+              <span class="tarjeta-titulo">Laptops</span>
             </div>
+
+            <!-- Cara trasera (lo que se ve al tocar la tarjeta) -->
             <div class="cara cara-trasera" aria-hidden="true">
-              <h3 class="tarjeta__subtitulo">Tu laptop ideal</h3>
-              <ul class="tarjeta__lista">
+              <h3 class="reverso-titulo">Tu laptop ideal</h3>
+              <ul class="reverso-lista">
                 <li>Para clases, oficina o juegos</li>
                 <li>Te asesoramos según tu presupuesto</li>
                 <li>Traemos el modelo que buscas</li>
               </ul>
-              <i class="tarjeta__barra"></i>
+              <span class="tarjeta-barra-tiempo"></span>
             </div>
+
           </div>
         </div>
 
-        <!-- TARJETA 2: Computadoras -->
+        <!-- ===== TARJETA 2: COMPUTADORAS ===== -->
         <div class="tarjeta" role="button" tabindex="0" aria-pressed="false" aria-label="Computadoras. Toca para ver detalles">
-          <div class="tarjeta__giro">
+          <div class="tarjeta-giro">
+
             <div class="cara cara-frontal">
-              <svg class="tarjeta__marca-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
-              <img class="tarjeta__icono" src="img/lineas/pc.png" alt="" width="96" height="96" decoding="async">
-              <b class="tarjeta__titulo">Computadoras</b>
+              <svg class="tarjeta-indicador-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
+              <img class="tarjeta-icono" src="img/lineas/pc.png" alt="" width="96" height="96" decoding="async">
+              <span class="tarjeta-titulo">Computadoras</span>
             </div>
+
             <div class="cara cara-trasera" aria-hidden="true">
-              <h3 class="tarjeta__subtitulo">Armada a tu medida</h3>
-              <ul class="tarjeta__lista">
+              <h3 class="reverso-titulo">Armada a tu medida</h3>
+              <ul class="reverso-lista">
                 <li>Tú eliges procesador, RAM y gráfica</li>
                 <li>Ensamble y pruebas incluidos</li>
                 <li>Para oficina, diseño o gaming</li>
               </ul>
-              <i class="tarjeta__barra"></i>
+              <span class="tarjeta-barra-tiempo"></span>
             </div>
+
           </div>
         </div>
 
-        <!-- TARJETA 3: Impresoras y accesorios -->
+        <!-- ===== TARJETA 3: IMPRESORAS Y ACCESORIOS ===== -->
         <div class="tarjeta" role="button" tabindex="0" aria-pressed="false" aria-label="Impresoras y accesorios. Toca para ver detalles">
-          <div class="tarjeta__giro">
+          <div class="tarjeta-giro">
+
             <div class="cara cara-frontal">
-              <svg class="tarjeta__marca-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
-              <svg class="tarjeta__icono" viewBox="0 0 96 96" aria-hidden="true"><rect x="26" y="12" width="44" height="22" rx="2" fill="#dfe6f7"/><rect x="10" y="30" width="76" height="34" rx="8" fill="#13244f"/><rect x="20" y="52" width="56" height="26" rx="2" fill="#fff" stroke="#b8c4de" stroke-width="2"/><rect x="26" y="58" width="12" height="4" fill="#ff4f6d"/><rect x="40" y="58" width="12" height="4" fill="#25c4ff"/><rect x="54" y="58" width="12" height="4" fill="#ffd23f"/><circle cx="74" cy="40" r="3" fill="#25e07a"/></svg>
-              <b class="tarjeta__titulo">Impresoras</b>
-              <b class="tarjeta__titulo">Accesorios</b>
+              <svg class="tarjeta-indicador-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
+              <!-- Icono dibujado en SVG (impresora). Puedes cambiarlo por un <img> como en las tarjetas 1 y 2 -->
+              <svg class="tarjeta-icono" viewBox="0 0 96 96" aria-hidden="true">
+                <rect x="26" y="12" width="44" height="22" rx="2" fill="#dfe6f7"/>
+                <rect x="10" y="30" width="76" height="34" rx="8" fill="#13244f"/>
+                <rect x="20" y="52" width="56" height="26" rx="2" fill="#fff" stroke="#b8c4de" stroke-width="2"/>
+                <rect x="26" y="58" width="12" height="4" fill="#ff4f6d"/>
+                <rect x="40" y="58" width="12" height="4" fill="#25c4ff"/>
+                <rect x="54" y="58" width="12" height="4" fill="#ffd23f"/>
+                <circle cx="74" cy="40" r="3" fill="#25e07a"/>
+              </svg>
+              <span class="tarjeta-titulo">Impresoras</span>
+              <span class="tarjeta-titulo">Accesorios</span>
             </div>
+
             <div class="cara cara-trasera" aria-hidden="true">
-              <h3 class="tarjeta__subtitulo">Imprime sin dolor</h3>
-              <ul class="tarjeta__lista">
+              <h3 class="reverso-titulo">Imprime sin dolor</h3>
+              <ul class="reverso-lista">
                 <li>Tinta continua y multifuncionales</li>
                 <li>Opciones para hogar y negocio</li>
                 <li>Te ayudamos a elegir</li>
               </ul>
-              <i class="tarjeta__barra"></i>
+              <span class="tarjeta-barra-tiempo"></span>
             </div>
+
           </div>
         </div>
 
-        <!-- TARJETA 4: Servicio técnico -->
+        <!-- ===== TARJETA 4: SERVICIO TÉCNICO Y MÁS ===== -->
         <div class="tarjeta" role="button" tabindex="0" aria-pressed="false" aria-label="Servicio técnico y más. Toca para ver detalles">
-          <div class="tarjeta__giro">
+          <div class="tarjeta-giro">
+
             <div class="cara cara-frontal">
-              <svg class="tarjeta__marca-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
-              <svg class="tarjeta__icono" viewBox="0 0 96 96" aria-hidden="true"><path d="M22 52V44a24 24 0 0 1 48 0v8" fill="none" stroke="#13244f" stroke-width="6" stroke-linecap="round"/><rect x="14" y="48" width="14" height="22" rx="6" fill="#1d3a86"/><rect x="64" y="48" width="14" height="22" rx="6" fill="#1d3a86"/><rect x="38" y="62" width="30" height="26" rx="14" fill="#e9eefb" stroke="#13244f" stroke-width="3"/><path d="M53 62v10" stroke="#13244f" stroke-width="3"/><rect x="6" y="76" width="22" height="12" rx="6" fill="#2f7dff"/></svg>
-              <b class="tarjeta__titulo">Servicio Técnico</b>
-              <b class="tarjeta__titulo">y mas...</b>
+              <svg class="tarjeta-indicador-giro" aria-hidden="true"><use href="#icono-girar"/></svg>
+              <!-- Icono dibujado en SVG (audífonos). Puedes cambiarlo por un <img> -->
+              <svg class="tarjeta-icono" viewBox="0 0 96 96" aria-hidden="true">
+                <path d="M22 52V44a24 24 0 0 1 48 0v8" fill="none" stroke="#13244f" stroke-width="6" stroke-linecap="round"/>
+                <rect x="14" y="48" width="14" height="22" rx="6" fill="#1d3a86"/>
+                <rect x="64" y="48" width="14" height="22" rx="6" fill="#1d3a86"/>
+                <rect x="38" y="62" width="30" height="26" rx="14" fill="#e9eefb" stroke="#13244f" stroke-width="3"/>
+                <path d="M53 62v10" stroke="#13244f" stroke-width="3"/>
+                <rect x="6" y="76" width="22" height="12" rx="6" fill="#2f7dff"/>
+              </svg>
+              <span class="tarjeta-titulo">Servicio Técnico</span>
+              <span class="tarjeta-titulo">y más...</span>
             </div>
+
             <div class="cara cara-trasera" aria-hidden="true">
-              <h3 class="tarjeta__subtitulo">Completa tu setup</h3>
-              <ul class="tarjeta__lista">
+              <h3 class="reverso-titulo">Completa tu setup</h3>
+              <ul class="reverso-lista">
                 <li>Audífonos, mouse y teclados</li>
                 <li>Webcams, parlantes y cables</li>
                 <li>Gaming y oficina</li>
               </ul>
-              <i class="tarjeta__barra"></i>
+              <span class="tarjeta-barra-tiempo"></span>
             </div>
+
           </div>
         </div>
 
       </section>
-      <!-- FIN GRID -->
 
-      <!-- BOTÓN CATÁLOGO (pon aquí el enlace real en href) -->
+      <!-- ===================================================================
+           BOTÓN CATÁLOGO PDF
+           Reemplaza href="#" por el enlace de tu PDF (se abre en otra pestaña)
+           =================================================================== -->
       <div class="zona-catalogo">
-        <a href="#" class="boton-catalogo rebote" target="_blank" rel="noopener noreferrer">
-          <img src="img/simbolos/pdf3.png" alt="Catálogo" class="icono-social">
-          <span>Catálogo PDF</span>
+        <a class="boton-catalogo" href="#" target="_blank" rel="noopener noreferrer">
+          <img class="boton-catalogo-icono" src="img/simbolos/pdf3.png" alt="">
+          <span class="boton-catalogo-texto">Catálogo PDF</span>
         </a>
       </div>
 
-      <!-- PIE DE PÁGINA -->
+      <!-- ===================================================================
+           PIE: redes sociales + ubicación
+           Reemplaza cada href="#" por tu enlace real
+           =================================================================== -->
       <footer class="pie">
-        <div class="pie__redes">
-          <a href="about.html" aria-label="Acerca de">
-            <img src="img/simbolos/whatsapp1.png" alt="Acerca" class="icono-social">
+        <div class="pie-redes">
+
+          <!-- WhatsApp -->
+          <a class="pie-red-enlace" href="#" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+            <img class="pie-red-icono" src="img/simbolos/whatsapp1.png" alt="">
           </a>
-          <a href="mapa.html" target="_blank" rel="noopener noreferrer" aria-label="Mapa">
-            <img src="img/simbolos/face.png" alt="Mapa" class="icono-social">
+
+          <!-- Facebook -->
+          <a class="pie-red-enlace" href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <img class="pie-red-icono" src="img/simbolos/face.png" alt="">
           </a>
-          <a href="#" aria-label="Compartir">
-            <img src="img/simbolos/inst.png" alt="Compartir" class="icono-social">
+
+          <!-- Instagram -->
+          <a class="pie-red-enlace" href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img class="pie-red-icono" src="img/simbolos/inst.png" alt="">
           </a>
+
         </div>
-        <p class="pie__texto">Chiclayo - Perú</p>
+
+        <p class="pie-ubicacion">Chiclayo - Perú</p>
       </footer>
 
-    </div>
-  </main>
+    </div><!-- fin .panel -->
+  </main><!-- fin .app -->
 
+  <!-- Lógica de las tarjetas giratorias -->
   <script src="js/script.js"></script>
 </body>
 </html>

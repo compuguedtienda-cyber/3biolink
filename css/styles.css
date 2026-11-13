@@ -1,171 +1,201 @@
-/* =====================================================
-   1. COLORES EDITABLES  (cambia solo estos valores)
-   ===================================================== */
+/* ==========================================================================
+   COMPUGUED · HOJA DE ESTILOS
+
+   ÍNDICE
+   1.  COLORES EDITABLES  ← aquí cambias los colores de todo
+   2.  BASE (reinicio, html, body)
+   3.  APP y PANEL
+   4.  CABECERA
+   5.  TÍTULOS
+   6.  GRID de tarjetas
+   7.  TARJETA (cara frontal y trasera)
+   8.  BOTÓN CATÁLOGO PDF
+   9.  PIE (redes sociales y ubicación)
+   10. RESPONSIVO · CELULAR (pantalla fija, sin scroll)
+   11. RESPONSIVO · TABLET
+   12. RESPONSIVO · LAPTOP
+   13. RESPONSIVO · MONITOR GRANDE
+   14. MOVIMIENTO REDUCIDO (accesibilidad)
+   ========================================================================== */
+
+
+/* ==========================================================================
+   1. COLORES EDITABLES
+   Cambia solo los valores de esta sección. El resto del archivo usa estas
+   variables, por lo que no necesitas tocar nada más.
+   ========================================================================== */
 :root {
-  /* --- FONDO DE LA WEB (toda la página) --- */
-  --fondo-web: #e9eefb;
-  --fondo-web-brillo: #f7f9ff;   /* resplandor arriba a la izquierda */
-  --color-puntos: #dbe3f6;       /* puntitos decorativos del fondo */
 
-  /* --- FONDO DEL PANEL (caja principal) --- */
-  --fondo-panel: #ffffff;
+  /* ---------- 1.1 FONDO DE LA WEBAPP (toda la pantalla, detrás del panel) ---------- */
+  --fondo-app: #e9eefb;              /* color base del fondo */
+  --fondo-app-resplandor: #f7f9ff;   /* luz suave en la esquina superior izquierda */
+  --fondo-app-puntos: #dbe3f6;       /* color de los puntitos decorativos */
 
-  /* --- FONDO DEL GRID (contenedor de las tarjetas) --- */
-  --fondo-grid: transparent;
+  /* ---------- 1.2 FONDO DEL CONTENEDOR PANEL (caja principal) ---------- */
+  --fondo-panel: #ffffff;            /* color de fondo del panel */
+  --borde-panel: #dbe3f6;            /* color del borde del panel */
 
-  /* --- FONDO DE LA TARJETA (card) --- */
-  --fondo-tarjeta-frente: #ffffff;       /* cara de adelante */
-  --fondo-tarjeta-reverso-1: #0b2a6b;    /* cara de atrás: color inicial */
-  --fondo-tarjeta-reverso-2: #1b49c4;    /* cara de atrás: color final */
+  /* ---------- 1.3 FONDO DEL CONTENEDOR GRID (cuadrícula de tarjetas) ---------- */
+  --fondo-grid: transparent;         /* "transparent" = sin color. Ejemplo: #eef2fc */
+  --grid-relleno: 0px;               /* espacio interno del grid (ponle 10px si le pones color) */
 
-  /* --- TEXTOS Y DETALLES --- */
-  --color-texto: #0b2a6b;
-  --color-texto-suave: #4a5a85;
-  --color-borde: #dbe3f6;
-  --color-acento: #1f56e0;
-  --color-brillo: #5cc8ff;
-  --fondo-boton: #222020;                /* botón Catálogo PDF */
+  /* ---------- 1.4 FONDO DE LA TARJETA (CARD) ---------- */
+  --fondo-tarjeta: #ffffff;          /* cara frontal: color de fondo */
+  --borde-tarjeta: #dbe3f6;          /* cara frontal: color del borde */
+  --fondo-reverso-inicio: #0b2a6b;   /* cara trasera: color inicial del degradado */
+  --fondo-reverso-fin: #1b49c4;      /* cara trasera: color final del degradado */
+
+  /* ---------- 1.5 TEXTOS Y ACENTOS ---------- */
+  --color-texto: #0b2a6b;            /* títulos y texto principal */
+  --color-texto-suave: #4a5a85;      /* subtítulo y texto de ayuda */
+  --color-texto-reverso: #ffffff;    /* texto de la cara trasera de la tarjeta */
+  --color-acento: #1f56e0;           /* icono de girar y borde al enfocar con teclado */
+  --color-brillo: #5cc8ff;           /* títulos, viñetas y barra de tiempo del reverso */
+
+  /* ---------- 1.6 BOTÓN CATÁLOGO Y PIE ---------- */
+  --boton-fondo: rgb(34, 32, 32);          /* fondo normal del botón */
+  --boton-fondo-hover: rgb(48, 46, 46);    /* fondo al pasar el mouse */
+  --boton-fondo-activo: rgb(20, 20, 20);   /* fondo al presionar */
+  --boton-borde: #292cccd3;                /* color del borde */
+  --boton-texto: whitesmoke;               /* color del texto */
+  --color-resalte: whitesmoke;             /* borde al pasar/presionar y contorno al enfocar */
+  --resplandor-hover: rgba(37, 211, 102, .35);   /* brillo al pasar el mouse */
+  --resplandor-activo: rgba(37, 211, 102, .5);   /* brillo al presionar un icono del pie */
+  --pie-texto: #000000;                    /* texto "Chiclayo - Perú" */
+
+  /* Tema siempre claro: se anula cualquier modo oscuro del dispositivo */
+  color-scheme: only light;
 }
 
-/* Modo oscuro automático (según el sistema del usuario) */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --fondo-web: #060d22;
-    --fondo-web-brillo: #0b1737;
-    --color-puntos: #22346b;
-    --fondo-panel: #101c40;
-    --fondo-grid: transparent;
-    --fondo-tarjeta-frente: #101c40;
-    --fondo-tarjeta-reverso-1: #1b49c4;
-    --fondo-tarjeta-reverso-2: #0a1d55;
-    --color-texto: #e8eeff;
-    --color-texto-suave: #9fb1e0;
-    --color-borde: #22346b;
-    --color-acento: #6c97ff;
-  }
-}
 
-/* =====================================================
+/* ==========================================================================
    2. BASE
-   ===================================================== */
+   ========================================================================== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* BODY: en celular/tablet ocupa exactamente la pantalla y NO hace scroll */
+/* Respeta las zonas seguras (notch) de los celulares */
+html {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 body {
   margin: 0;
-  height: 100dvh;
-  overflow: hidden;
-  overscroll-behavior: none;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: calc(10px + env(safe-area-inset-top, 0px)) 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  padding: 18px 14px 30px;
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--color-texto);
-  background-color: var(--fondo-web);
+  background-color: var(--fondo-app);
   background-image:
-    radial-gradient(circle at 15% 0%, var(--fondo-web-brillo), transparent 55%),
-    radial-gradient(var(--color-puntos) 1px, transparent 1.2px);
+    radial-gradient(circle at 15% 0%, var(--fondo-app-resplandor), transparent 55%),
+    radial-gradient(var(--fondo-app-puntos) 1px, transparent 1.2px);
   background-size: auto, 22px 22px;
   -webkit-tap-highlight-color: transparent;
 }
 
-/* =====================================================
-   3. CONTENEDOR Y PANEL
-   ===================================================== */
-.contenedor-web {
+
+/* ==========================================================================
+   3. APP y PANEL
+   ========================================================================== */
+/* Ancho máximo de la webapp (se amplía en tablet, laptop y monitor) */
+.app {
   width: 100%;
   max-width: 460px;
-  height: 100%;
 }
 
-/* El panel es una columna: cabecera / grid (se estira) / botón / pie */
 .panel {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: clamp(10px, 2vh, 22px) 14px;
-  background: var(--fondo-panel);
-  border: 1px solid var(--color-borde);
+  padding: 22px 16px 24px;
+  background-color: var(--fondo-panel);
+  border: 1px solid var(--borde-panel);
   border-radius: 28px;
   box-shadow: 0 20px 50px -25px rgba(11, 42, 107, .45);
 }
 
-/* =====================================================
+
+/* ==========================================================================
    4. CABECERA
-   ===================================================== */
+   ========================================================================== */
 .cabecera {
-  flex: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 14px;
 }
 
-.cabecera__logo {
-  width: clamp(48px, 9vh, 80px);
-  height: clamp(48px, 9vh, 80px);
+.cabecera-logo {
+  flex: none;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.cabecera__titulo {
+.cabecera-titulo {
   margin: 0;
-  font-size: clamp(1.5rem, 4vh, 2rem);
+  font-size: 2rem;
   font-weight: 800;
   letter-spacing: -.03em;
   line-height: 1;
 }
 
-.cabecera__subtitulo {
+.cabecera-subtitulo {
   margin: 4px 0 0;
+  color: var(--color-texto-suave);
   font-size: .95rem;
   font-weight: 600;
-  color: var(--color-texto-suave);
 }
 
-.lema {
-  flex: none;
-  margin: clamp(8px, 2vh, 20px) 0 4px;
+
+/* ==========================================================================
+   5. TÍTULOS
+   ========================================================================== */
+.titulo-principal {
+  margin: 20px 0 4px;
   text-align: center;
-  font-size: clamp(1.05rem, 3vh, 1.3rem);
+  font-size: 1.3rem;
   font-weight: 800;
-  line-height: 1.2;
   letter-spacing: -.02em;
+  line-height: 1.2;
 }
 
-.ayuda {
-  flex: none;
-  margin: 0 0 clamp(6px, 1.5vh, 14px);
+.texto-ayuda {
+  margin: 0 0 14px;
   text-align: center;
-  font-size: .8rem;
   color: var(--color-texto-suave);
+  font-size: .8rem;
 }
 
-/* =====================================================
-   5. GRID (contenedor de tarjetas)
-   Celular: 2 columnas x 2 filas que se reparten el alto libre
-   ===================================================== */
+
+/* ==========================================================================
+   6. GRID de tarjetas
+   ========================================================================== */
 .grid-tarjetas {
-  flex: 1;
-  min-height: 0;                 /* permite que el grid se encoja sin generar scroll */
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-  background: var(--fondo-grid);
+  grid-template-columns: repeat(2, 1fr);   /* 2 columnas en celular (4 en tablet y mayores) */
+  gap: 12px;
+  padding: var(--grid-relleno);
+  border-radius: 20px;
+  background-color: var(--fondo-grid);
 }
 
-/* =====================================================
-   6. TARJETA (card) - estructura del giro 3D
-   ===================================================== */
+
+/* ==========================================================================
+   7. TARJETA
+   Estructura:  .tarjeta > .tarjeta-giro > .cara-frontal + .cara-trasera
+   Clases que agrega el JS:
+     .tarjeta-volteada → la tarjeta está mostrando su cara trasera
+     .tarjeta-vista    → la tarjeta ya fue tocada (detiene el icono animado)
+   ========================================================================== */
 .tarjeta {
   position: relative;
-  height: 100%;
-  perspective: 900px;
+  height: 150px;                 /* altura de la tarjeta (cambia en tablet y laptop) */
+  perspective: 900px;            /* profundidad del efecto 3D */
   cursor: pointer;
   outline: none;
   border-radius: 20px;
@@ -176,20 +206,19 @@ body {
   outline-offset: 3px;
 }
 
-/* Pieza que gira */
-.tarjeta__giro {
+/* Pieza que realmente gira */
+.tarjeta-giro {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
   transition: transform .7s cubic-bezier(.3, 1.25, .5, 1);
 }
 
-/* JS agrega la clase "activa" al tocar la tarjeta */
-.tarjeta.activa .tarjeta__giro {
+.tarjeta-volteada .tarjeta-giro {
   transform: rotateY(180deg);
 }
 
-/* Ambas caras */
+/* Estilo común de ambas caras */
 .cara {
   position: absolute;
   inset: 0;
@@ -197,22 +226,22 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 8px;
-  overflow: hidden;
+  padding: 12px;
   text-align: center;
+  overflow: hidden;
   border-radius: 20px;
-  backface-visibility: hidden;
+  backface-visibility: hidden;          /* oculta la cara que mira hacia atrás */
   -webkit-backface-visibility: hidden;
 }
 
-/* ---------- Cara frontal ---------- */
+/* ----- Cara frontal ----- */
 .cara-frontal {
-  background: var(--fondo-tarjeta-frente);
-  border: 1px solid var(--color-borde);
+  background-color: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-tarjeta);
   box-shadow: 0 8px 20px -14px rgba(11, 42, 107, .5);
 }
 
-/* Brillo que cruza al pasar el mouse */
+/* Destello que cruza la tarjeta al pasar el mouse */
 .cara-frontal::after {
   content: "";
   position: absolute;
@@ -226,30 +255,24 @@ body {
   transform: translateX(120%);
 }
 
-/* Icono: se encoge solo según el alto disponible de la tarjeta */
-.tarjeta__icono {
-  flex: 1 1 0;
-  min-height: 0;
-  width: auto;
-  max-width: 100%;
-  max-height: 96px;
-  margin-bottom: 4px;
+.tarjeta-icono {
+  width: 84px;
+  height: 84px;
+  margin-bottom: 8px;
   transition: transform .3s;
 }
 
-.tarjeta:hover .tarjeta__icono {
+.tarjeta:hover .tarjeta-icono {
   transform: translateY(-3px) scale(1.05);
 }
 
-.tarjeta__titulo {
-  flex: none;
-  font-size: clamp(.78rem, 2.1vh, 1rem);
+.tarjeta-titulo {
+  font-size: 1rem;
   font-weight: 800;
-  line-height: 1.15;
 }
 
-/* Iconito de "girar" arriba a la derecha */
-.tarjeta__marca-giro {
+/* Iconito de "girar" en la esquina superior derecha */
+.tarjeta-indicador-giro {
   position: absolute;
   top: 8px;
   right: 8px;
@@ -259,81 +282,81 @@ body {
   opacity: .7;
 }
 
-/* Parpadea hasta que la tarjeta se toca por primera vez (clase "vista") */
-.tarjeta:not(.vista) .tarjeta__marca-giro {
-  animation: girar-aviso 2.4s ease-in-out infinite;
+/* Solo se anima mientras la tarjeta no haya sido tocada */
+.tarjeta:not(.tarjeta-vista) .tarjeta-indicador-giro {
+  animation: indicador-giro 2.4s ease-in-out infinite;
 }
 
-@keyframes girar-aviso {
-  50% {
-    transform: rotate(180deg) scale(1.15);
-  }
+@keyframes indicador-giro {
+  50% { transform: rotate(180deg) scale(1.15); }
 }
 
-/* ---------- Cara trasera ---------- */
+/* ----- Cara trasera ----- */
 .cara-trasera {
   justify-content: flex-start;
-  padding: 10px 10px 12px;
-  color: #fff;
-  background: linear-gradient(155deg, var(--fondo-tarjeta-reverso-1), var(--fondo-tarjeta-reverso-2));
+  padding: 14px 12px 16px;
+  color: var(--color-texto-reverso);
+  background: linear-gradient(155deg, var(--fondo-reverso-inicio), var(--fondo-reverso-fin));
   transform: rotateY(180deg);
-  visibility: hidden;
+  visibility: hidden;                          /* oculta mientras no se vea */
   transition: visibility 0s linear .35s;
 }
 
-.tarjeta.activa .cara-trasera {
+.tarjeta-volteada .cara-trasera {
   visibility: visible;
   transition-delay: 0s;
 }
 
-.tarjeta__subtitulo {
-  margin: 0 0 4px;
-  font-size: clamp(.78rem, 2vh, .95rem);
-  font-weight: 800;
+.reverso-titulo {
+  margin: 0 0 6px;
   color: var(--color-brillo);
+  font-size: .95rem;
+  font-weight: 800;
 }
 
-.tarjeta__lista {
+.reverso-lista {
   width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
   text-align: left;
-  font-size: clamp(.62rem, 1.7vh, .76rem);
-  line-height: 1.3;
+  font-size: .76rem;
+  line-height: 1.35;
 }
 
-.tarjeta__lista li {
+.reverso-lista li {
   position: relative;
-  margin-bottom: 2px;
-  padding-left: 12px;
+  margin-bottom: 3px;
+  padding-left: 14px;
 }
 
-.tarjeta__lista li::before {
+/* Viñeta circular de cada punto de la lista */
+.reverso-lista li::before {
   content: "";
   position: absolute;
   left: 2px;
   top: .5em;
-  width: 5px;
-  height: 5px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--color-brillo);
+  background-color: var(--color-brillo);
 }
 
-/* Barra inferior: se vacía en 10 s y luego la tarjeta vuelve al frente */
-.tarjeta__barra {
+/* Barra inferior que se vacía mostrando cuánto falta para que la tarjeta se voltee sola.
+   La duración la define TIEMPO_REVERSO_MS en js/script.js */
+.tarjeta-barra-tiempo {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 4px;
-  background: var(--color-brillo);
+  background-color: var(--color-brillo);
   transform-origin: left;
   transform: scaleX(0);
 }
 
-.tarjeta.activa .tarjeta__barra {
-  animation: vaciar-barra 10s linear forwards;
+.tarjeta-volteada .tarjeta-barra-tiempo {
+  animation: vaciar-barra var(--tiempo-reverso, 10s) linear forwards;
 }
 
 @keyframes vaciar-barra {
@@ -341,12 +364,15 @@ body {
   to   { transform: scaleX(0); }
 }
 
-/* =====================================================
-   7. BOTÓN CATÁLOGO PDF
-   ===================================================== */
+
+/* ==========================================================================
+   8. BOTÓN CATÁLOGO PDF
+   ========================================================================== */
 .zona-catalogo {
-  flex: none;
-  padding: clamp(6px, 1.5vh, 16px) 10px;
+  display: flex;
+  justify-content: center;
+  margin-top: 18px;
+  padding: 5px 20px 20px;
 }
 
 .boton-catalogo {
@@ -354,31 +380,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(48px, 7vh, 60px);
+  width: 100%;
+  min-height: 60px;
   padding: 5px 20px;
-  overflow: hidden;                /* evita que el brillo se salga */
-  color: whitesmoke;
+  overflow: hidden;                      /* para que el brillo no se salga del botón */
+  color: var(--boton-texto);
   text-decoration: none;
   text-align: center;
-  background-color: var(--fondo-boton);
-  border: 2px solid #292cccd3;
+  background-color: var(--boton-fondo);
+  border: 2px solid var(--boton-borde);
   border-radius: 30px;
   -webkit-tap-highlight-color: transparent;
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease, border-color .25s ease;
-}
-
-.boton-catalogo span {
-  display: block;
-  font-size: 1.15rem;
-  font-weight: 600;
-}
-
-/* Icono fijo a la izquierda del botón */
-.boton-catalogo .icono-social {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    background-color .25s ease,
+    border-color .25s ease;
+  animation: rebote-boton 3s infinite linear;
 }
 
 /* Brillo que cruza el botón */
@@ -394,12 +412,41 @@ body {
   pointer-events: none;
 }
 
+.boton-catalogo-texto {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Icono fijo a la izquierda */
+.boton-catalogo-icono {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* El rebote se detiene al pasar el mouse o presionar */
+.boton-catalogo:hover,
+.boton-catalogo:active {
+  animation: none;
+}
+
+@keyframes rebote-boton {
+  0%, 40%, 50%, 100% { transform: translateY(0); }
+  43% { transform: translateY(-15px); }
+  46% { transform: translateY(0); }
+  48% { transform: translateY(-7px); }
+}
+
 @media (hover: hover) {
   .boton-catalogo:hover {
+    background-color: var(--boton-fondo-hover);
+    border-color: var(--color-resalte);
+    box-shadow:
+      0 10px 22px rgba(0, 0, 0, .45),
+      0 0 14px var(--resplandor-hover);
     transform: translateY(-4px) scale(1.02);
-    background-color: #302e2e;
-    border-color: var(--color-acento);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, .45), 0 0 14px rgba(37, 211, 102, .35);
   }
 
   .boton-catalogo:hover::after {
@@ -407,187 +454,439 @@ body {
     transition: left .7s ease;
   }
 
-  .boton-catalogo:hover .icono-social {
+  .boton-catalogo:hover .boton-catalogo-icono {
     transform: translateY(-50%) scale(1.15) rotate(-8deg);
   }
 }
 
 .boton-catalogo:active {
-  transform: scale(.96);
-  background-color: #141414;
-  border-color: var(--color-acento);
+  background-color: var(--boton-fondo-activo);
+  border-color: var(--color-resalte);
   box-shadow: 0 3px 8px rgba(0, 0, 0, .5);
+  transform: scale(.96);
   transition-duration: .08s;
 }
 
 .boton-catalogo:focus-visible {
-  outline: 3px solid var(--color-acento);
+  outline: 3px solid var(--color-resalte);
   outline-offset: 3px;
 }
 
-/* Rebote periódico del botón (se detiene al tocarlo) */
-.rebote {
-  animation: rebotar 3s infinite linear;
-}
 
-.rebote:hover,
-.rebote:active {
-  animation: none;
-}
-
-@keyframes rebotar {
-  0%, 40%, 50%, 100% { transform: translateY(0); }
-  43% { transform: translateY(-15px); }
-  46% { transform: translateY(0); }
-  48% { transform: translateY(-7px); }
-}
-
-/* =====================================================
-   8. PIE DE PÁGINA
-   ===================================================== */
+/* ==========================================================================
+   9. PIE (redes sociales y ubicación)
+   ========================================================================== */
 .pie {
-  flex: none;
   text-align: center;
 }
 
-.pie__redes {
+.pie-redes {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   gap: 30px;
 }
 
-.pie__redes a {
+.pie-red-enlace {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   outline: none;
   -webkit-tap-highlight-color: transparent;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
 }
 
-.pie__texto {
-  margin: 6px 0 0;
-  font-size: .9rem;
-  color: var(--color-texto);
-}
-
-/* Iconos redondos (botón y pie) */
-.icono-social {
+/* Tamaño común de los iconos (botón catálogo y redes sociales) */
+.boton-catalogo-icono,
+.pie-red-icono {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
   filter: brightness(.9);
-  transition: transform .3s ease, opacity .3s ease, filter .3s ease;
+  transition:
+    transform .3s ease,
+    opacity .3s ease,
+    filter .3s ease;
+}
+
+.pie-red-icono {
+  border-radius: 50%;
 }
 
 @media (hover: hover) {
-  .pie__redes a:hover {
+  .pie-red-enlace:hover {
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, .45),
+      0 0 14px var(--resplandor-hover);
     transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(0, 0, 0, .45), 0 0 14px rgba(37, 211, 102, .35);
   }
 
-  .pie__redes a:hover .icono-social {
-    transform: scale(1.12) rotate(-8deg);
+  .pie-red-enlace:hover .pie-red-icono {
     filter: brightness(1.2);
+    transform: scale(1.12) rotate(-8deg);
   }
 }
 
-.pie__redes a:active {
+.pie-red-enlace:active {
+  box-shadow: 0 0 12px var(--resplandor-activo);
   transform: scale(.88);
-  box-shadow: 0 0 12px rgba(37, 211, 102, .5);
   transition-duration: .08s;
 }
 
-.pie__redes a:active .icono-social {
+.pie-red-enlace:active .pie-red-icono {
   filter: brightness(1.3);
 }
 
-.pie__redes a:focus-visible {
-  outline: 3px solid var(--color-acento);
+.pie-red-enlace:focus-visible {
+  outline: 3px solid var(--color-resalte);
   outline-offset: 3px;
 }
 
-/* =====================================================
-   9. TABLET (700px o más): 4 tarjetas en una fila, sigue sin scroll
-   ===================================================== */
-@media (min-width: 700px) {
-  body {
-    padding-left: 24px;
-    padding-right: 24px;
+.pie-ubicacion {
+  margin: 1em 0;
+  color: var(--pie-texto);
+}
+
+
+/* ==========================================================================
+   10. RESPONSIVO · CELULAR (hasta 699px de ancho)
+   Pantalla FIJA: sin scroll y sin desplazamiento. Todo se ajusta a la altura
+   disponible: el grid ocupa el espacio sobrante y las tarjetas se adaptan.
+   ========================================================================== */
+@media (max-width: 699px) {
+
+  /* --- Bloqueo del desplazamiento (arriba/abajo) --- */
+  html {
+    height: 100%;
+    padding: 0;                          /* la zona segura se aplica en el body */
+    overflow: hidden;
+    overscroll-behavior: none;           /* evita "rebote" y recargar al deslizar */
   }
 
-  .contenedor-web {
+  body {
+    position: fixed;                     /* la página queda clavada a la pantalla */
+    inset: 0;
+    min-height: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+    padding:
+      calc(12px + env(safe-area-inset-top, 0px))
+      12px
+      calc(12px + env(safe-area-inset-bottom, 0px));
+  }
+
+  /* --- El panel ocupa toda la altura y reparte el espacio en columna --- */
+  .app {
+    height: 100%;
+  }
+
+  .panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 16px 14px 12px;
+  }
+
+  /* Elementos de tamaño fijo (no se encogen) */
+  .cabecera,
+  .titulo-principal,
+  .texto-ayuda,
+  .zona-catalogo,
+  .pie {
+    flex: none;
+  }
+
+  .cabecera-logo {
+    width: 72px;
+    height: 72px;
+  }
+
+  .cabecera-titulo {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .titulo-principal {
+    margin: 14px 0 4px;
+    font-size: clamp(1rem, 5vw, 1.3rem);
+  }
+
+  .texto-ayuda {
+    margin-bottom: 10px;
+  }
+
+  /* --- El grid ocupa TODO el espacio sobrante (2 filas iguales) --- */
+  .grid-tarjetas {
+    flex: 1 1 0;
+    min-height: 0;
+    max-height: 460px;                   /* en celulares muy altos no se estira más */
+    margin-block: auto;                  /* centra el grid si sobra espacio */
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+
+  .tarjeta {
+    height: auto;                        /* la altura la dan las filas del grid */
+    container-type: size;                /* permite usar cqw / cqh = % del ancho / alto de la tarjeta */
+  }
+
+  /* --- Contenido de la tarjeta: se adapta al tamaño real de cada tarjeta ---
+     cqw = 1% del ancho de la tarjeta · cqh = 1% de su alto.
+     min() toma siempre el valor más pequeño, así nada se recorta. */
+  .cara {
+    padding: min(12px, 6cqh) min(12px, 5cqw);
+  }
+
+  .tarjeta-icono {
+    flex: none;
+    width: auto;
+    height: min(84px, 44cqh);
+    margin-bottom: min(8px, 3.5cqh);
+    aspect-ratio: 1 / 1;
+  }
+
+  .tarjeta-titulo {
+    font-size: min(1rem, 9.4cqw, 11cqh);
+    line-height: 1.2;
+  }
+
+  .cara-trasera {
+    padding: min(14px, 8cqh) min(12px, 7cqw) min(16px, 7cqh);
+  }
+
+  .reverso-titulo {
+    margin-bottom: min(6px, 3cqh);
+    font-size: min(.95rem, 8.6cqw, 8.4cqh);
+    line-height: 1.2;
+  }
+
+  .reverso-lista {
+    font-size: min(.76rem, 7.2cqw, 7.1cqh);
+    line-height: 1.3;
+  }
+
+  .reverso-lista li {
+    margin-bottom: min(3px, 1.5cqh);
+    padding-left: min(14px, 7cqw);
+  }
+
+  .zona-catalogo {
+    margin-top: 12px;
+    padding: 4px 10px 12px;
+  }
+
+  .boton-catalogo {
+    min-height: 56px;
+  }
+
+  .boton-catalogo-texto {
+    font-size: 18px;
+  }
+
+  .boton-catalogo-icono {
+    left: 14px;
+  }
+
+  .pie-ubicacion {
+    margin: 10px 0 0;
+  }
+}
+
+/* --- Celulares de poca altura (700px de alto o menos): todo más compacto,
+       así las tarjetas ganan espacio --- */
+@media (max-width: 699px) and (max-height: 700px) {
+
+  body {
+    padding:
+      calc(8px + env(safe-area-inset-top, 0px))
+      10px
+      calc(8px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .panel {
+    padding: 10px 12px 8px;
+  }
+
+  .cabecera-logo {
+    width: 56px;
+    height: 56px;
+  }
+
+  .titulo-principal {
+    margin: 8px 0 2px;
+    font-size: clamp(.95rem, 4.8vw, 1.1rem);
+  }
+
+  .texto-ayuda {
+    margin-bottom: 8px;
+    font-size: .75rem;
+  }
+
+  .grid-tarjetas {
+    gap: 10px;
+  }
+
+  .zona-catalogo {
+    margin-top: 8px;
+    padding: 0 8px 8px;
+  }
+
+  .boton-catalogo {
+    min-height: 48px;
+  }
+
+  .boton-catalogo-texto {
+    font-size: 17px;
+  }
+
+  .boton-catalogo-icono,
+  .pie-red-icono {
+    width: 34px;
+    height: 34px;
+  }
+
+  .pie-redes {
+    gap: 26px;
+  }
+
+  .pie-ubicacion {
+    margin-top: 6px;
+    font-size: .8rem;
+  }
+}
+
+
+/* ==========================================================================
+   11. RESPONSIVO · TABLET (700px o más)
+   ========================================================================== */
+@media (min-width: 700px) {
+
+  body {
+    padding: 36px 24px 48px;
+  }
+
+  .app {
     max-width: 760px;
   }
 
   .panel {
-    padding: clamp(14px, 3vh, 34px) 30px;
+    padding: 34px 30px;
+  }
+
+  .cabecera-titulo {
+    font-size: 2.6rem;
+  }
+
+  .titulo-principal {
+    font-size: 1.7rem;
   }
 
   .grid-tarjetas {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: minmax(0, 260px);
-    align-content: center;         /* centra la fila de tarjetas en el espacio libre */
     gap: 18px;
   }
 
-  .tarjeta__titulo { font-size: 1.05rem; }
-  .tarjeta__subtitulo { font-size: 1.05rem; }
-  .tarjeta__lista { font-size: .85rem; }
-  .lema { font-size: clamp(1.4rem, 3.5vh, 1.7rem); }
-  .boton-catalogo { width: 50%; justify-self: center; margin-inline: auto; }
+  .tarjeta {
+    height: 230px;
+  }
+
+  .tarjeta-icono {
+    width: 96px;
+    height: 96px;
+  }
+
+  .tarjeta-titulo {
+    font-size: 1.1rem;
+  }
+
+  .reverso-titulo {
+    font-size: 1.05rem;
+  }
+
+  .reverso-lista {
+    font-size: .85rem;
+  }
+
+  .boton-catalogo {
+    width: 50%;
+  }
 }
 
-/* =====================================================
-   10. LAPTOP / MONITOR (1100px o más): aquí SÍ puede haber scroll
-   ===================================================== */
+
+/* ==========================================================================
+   12. RESPONSIVO · LAPTOP (1100px o más)
+   ========================================================================== */
 @media (min-width: 1100px) {
-  body {
-    height: auto;
-    min-height: 100vh;
-    overflow: auto;
-    overscroll-behavior: auto;
-  }
 
-  .contenedor-web {
+  .app {
     max-width: 980px;
-    height: auto;
   }
 
-  .panel {
-    height: auto;
-  }
-
-  .grid-tarjetas {
-    grid-template-rows: none;
+  .titulo-principal {
+    font-size: 2rem;
   }
 
   .tarjeta {
     height: 250px;
   }
 
-  .lema {
-    font-size: 2rem;
+  .tarjeta-icono {
+    width: 110px;
+    height: 110px;
   }
 }
 
+
+/* ==========================================================================
+   13. RESPONSIVO · MONITOR GRANDE (1800px o más)
+   ========================================================================== */
 @media (min-width: 1800px) {
-  html { font-size: 120%; }
-  .contenedor-web { max-width: 1200px; }
+
+  html {
+    font-size: 120%;
+  }
+
+  .app {
+    max-width: 1200px;
+  }
 }
 
-/* =====================================================
-   11. ACCESIBILIDAD: sin animaciones fuertes si el usuario lo pide
-   ===================================================== */
+
+/* ==========================================================================
+   14. MOVIMIENTO REDUCIDO (accesibilidad)
+   Si el dispositivo pide menos animaciones, la tarjeta cambia de cara con un
+   desvanecido en lugar de girar, y se detienen las animaciones repetitivas.
+   ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
-  .tarjeta__giro { transition: none; }
-  .cara { transition: opacity .25s; }
-  .cara-trasera { transform: none; opacity: 0; }
-  .tarjeta.activa .tarjeta__giro { transform: none; }
-  .tarjeta.activa .cara-trasera { opacity: 1; }
-  .tarjeta.activa .cara-frontal { opacity: 0; }
-  .tarjeta__marca-giro { animation: none !important; }
+
+  .tarjeta-giro {
+    transition: none;
+  }
+
+  .tarjeta-volteada .tarjeta-giro {
+    transform: none;
+  }
+
+  .cara {
+    transition: opacity .25s;
+  }
+
+  .cara-trasera {
+    transform: none;
+    opacity: 0;
+  }
+
+  .tarjeta-volteada .cara-trasera {
+    opacity: 1;
+  }
+
+  .tarjeta-volteada .cara-frontal {
+    opacity: 0;
+  }
+
+  .tarjeta-indicador-giro,
+  .boton-catalogo {
+    animation: none !important;
+  }
 }
