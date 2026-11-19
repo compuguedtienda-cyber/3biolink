@@ -18,7 +18,6 @@
    14. MOVIMIENTO REDUCIDO (accesibilidad)
    ========================================================================== */
 
-
 /* ==========================================================================
    1. COLORES EDITABLES
    Cambia solo los valores de esta sección. El resto del archivo usa estas
@@ -27,21 +26,21 @@
 :root {
 
   /* ---------- 1.1 FONDO DE LA WEBAPP (toda la pantalla, detrás del panel) ---------- */
-  --fondo-app: #c3cfec;              /* color base del fondo */
-  --fondo-app-resplandor: #b8520f;   /* luz suave en la esquina superior izquierda */
-  --fondo-app-puntos: #0dac0d;       /* color de los puntitos decorativos */
+  --fondo-app: #2563EB;              /* color base del fondo Principal*/
+  --fondo-app-resplandor: #2563EB;   /* luz suave en la esquina superior izquierda */
+  --fondo-app-puntos: #a5a4db   ;       /* color de los puntitos decorativos */
 
   /* ---------- 1.2 FONDO DEL CONTENEDOR PANEL (caja principal) ---------- */
-  --fondo-panel: #ebf836;            /* color de fondo del panel */
-  --borde-panel: #c71282;            /* color del borde del panel */
+  --fondo-panel: #F5F5F5;            /* color de fondo del panel */
+  --borde-panel: #1800f1;            /* color del borde del panel */
 
   /* ---------- 1.3 FONDO DEL CONTENEDOR GRID (cuadrícula de tarjetas) ---------- */
   --fondo-grid: transparent;         /* "transparent" = sin color. Ejemplo: #eef2fc */
   --grid-relleno: 0px;               /* espacio interno del grid (ponle 10px si le pones color) */
 
   /* ---------- 1.4 FONDO DE LA TARJETA (CARD) ---------- */
-  --fondo-tarjeta: #a5faf3;          /* cara frontal: color de fondo */
-  --borde-tarjeta: #d41010;          /* cara frontal: color del borde */
+  --fondo-tarjeta: #FFFFFF;          /* cara frontal: color de fondo */
+  --borde-tarjeta: #1013d4;          /* cara frontal: color del borde */
   --fondo-reverso-inicio: #0b2a6b;   /* cara trasera: color inicial del degradado */
   --fondo-reverso-fin: #1b49c4;      /* cara trasera: color final del degradado */
 
