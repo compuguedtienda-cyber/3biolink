@@ -1,0 +1,13 @@
+Te adjunto mi codigo html, css y js. Tomate tu tiempo, analiza con calma, precisión, actúa como un doctor profesional en desarrollo web App y realiza mis indicaciones eliminar(si es necesario), corregir, modificar y reordenar :
+
+1) El codigo actualmente tiene como fondo para diferentes dispositivos sea celulares (principalmente), tablet, laptops y monitores, colores, sea degradado u otro estilo, quiero que lo cambies por:
+
+A) Si es para dispositivos celulares que tenga la imagen celu1 que esta en la ruta img/celular/celu1.jpg, que la imagen no se distorsione, es decir se adapte a la mayoria de dispositivos celulares.
+
+B) Si es para dispositivos tablet, laptop o monitores que la imagen 1plomo que esta en la ruta img/fondos/1plomo.jpg, que la imagen no se distorsione, es decir se adapte a la mayoria de dispositivos en mención.
+
+2) Ten encuenta que si algún texto no coincide con algunas imágenes, sea en las tarjetas (card) giratorias, botón de catalogo, o botones de redes sociales, no hay problema porque solo es de ejemplo, luego yo modificaré por los datos e información real.
+
+3) Después de todo lo indicado, vuelve a revisar todo el codigo y verifica por segunda vez que todo funcione correctamente.
+
+4) Al final, créame los archivos separados de html, css y js, para copiar y pegar.
