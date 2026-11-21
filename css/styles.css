@@ -2,46 +2,48 @@
    COMPUGUED · HOJA DE ESTILOS
 
    ÍNDICE
-   1.  COLORES EDITABLES  ← aquí cambias los colores de todo
-   2.  BASE (reinicio, html, body)
-   3.  APP y PANEL
-   4.  CABECERA
-   5.  TÍTULOS
-   6.  GRID de tarjetas
-   7.  TARJETA (cara frontal y trasera)
-   8.  BOTÓN CATÁLOGO PDF
-   9.  PIE (redes sociales y ubicación)
-   10. RESPONSIVO · CELULAR VERTICAL (pantalla fija, sin scroll)
-   11. RESPONSIVO · TABLET
-   12. RESPONSIVO · LAPTOP
-   13. RESPONSIVO · MONITOR GRANDE
-   14. MOVIMIENTO REDUCIDO (accesibilidad)
+   1.  COLORES E IMÁGENES EDITABLES  ← aquí cambias colores y fondos
+   2.  FONDO DE LA WEBAPP (imagen según dispositivo)
+   3.  BASE (reinicio, body)
+   4.  APP y PANEL
+   5.  CABECERA
+   6.  TÍTULOS
+   7.  GRID de tarjetas
+   8.  TARJETA (cara frontal y trasera)
+   9.  BOTÓN CATÁLOGO PDF
+   10. PIE (redes sociales y ubicación)
+   11. RESPONSIVO · CELULAR VERTICAL (pantalla fija, sin scroll)
+   12. RESPONSIVO · TABLET
+   13. RESPONSIVO · LAPTOP
+   14. RESPONSIVO · MONITOR GRANDE
+   15. MOVIMIENTO REDUCIDO (accesibilidad)
    ========================================================================== */
 
-
 /* ==========================================================================
-   1. COLORES EDITABLES
+   1. COLORES E IMÁGENES EDITABLES
    Cambia solo los valores de esta sección. El resto del archivo usa estas
    variables, por lo que no necesitas tocar nada más.
    ========================================================================== */
 :root {
 
-  /* ---------- 1.1 FONDO DE LA WEBAPP (toda la pantalla, detrás del panel) ---------- */
-  --fondo-app: #e9eefb;              /* color base del fondo */
-  --fondo-app-resplandor: #f7f9ff;   /* luz suave en la esquina superior izquierda */
-  --fondo-app-puntos: #dbe3f6;       /* color de los puntitos decorativos */
+  /* ---------- 1.1 FONDO DE LA WEBAPP (imágenes) ----------
+     Las rutas son relativas a ESTE archivo (css/styles.css), por eso empiezan con "../".
+     Respeta mayúsculas, minúsculas y la extensión exacta del archivo. */
+  --imagen-fondo-celular: url("../img/celular/celu3.jpg");   /* celulares */
+  --imagen-fondo-pc: url("../img/fondos/3celeste.jpg");        /* tablet, laptop y monitor */
+  --fondo-app-respaldo: #3b3f46;     /* color que se ve un instante mientras carga la imagen */
 
   /* ---------- 1.2 FONDO DEL CONTENEDOR PANEL (caja principal) ---------- */
-  --fondo-panel: #ffffff;            /* color de fondo del panel */
-  --borde-panel: #dbe3f6;            /* color del borde del panel */
+  --fondo-panel: #F5F5F5;            /* color de fondo del panel */
+  --borde-panel: #1800f1;            /* color del borde del panel */
 
   /* ---------- 1.3 FONDO DEL CONTENEDOR GRID (cuadrícula de tarjetas) ---------- */
   --fondo-grid: transparent;         /* "transparent" = sin color. Ejemplo: #eef2fc */
   --grid-relleno: 0px;               /* espacio interno del grid (ponle 10px si le pones color) */
 
   /* ---------- 1.4 FONDO DE LA TARJETA (CARD) ---------- */
-  --fondo-tarjeta: #ffffff;          /* cara frontal: color de fondo */
-  --borde-tarjeta: #dbe3f6;          /* cara frontal: color del borde */
+  --fondo-tarjeta: #FFFFFF;          /* cara frontal: color de fondo */
+  --borde-tarjeta: #1013d4;          /* cara frontal: color del borde */
   --fondo-reverso-inicio: #0b2a6b;   /* cara trasera: color inicial del degradado */
   --fondo-reverso-fin: #1b49c4;      /* cara trasera: color final del degradado */
 
@@ -69,7 +71,40 @@
 
 
 /* ==========================================================================
-   2. BASE
+   2. FONDO DE LA WEBAPP (imagen según dispositivo)
+   El fondo es una capa fija detrás de todo el contenido (body::before).
+   - background-size: cover      → la imagen llena la pantalla sin deformarse
+                                   (si la proporción no coincide, recorta los bordes)
+   - background-position: center → el recorte se hace de forma equilibrada
+   - position: fixed             → la imagen no se mueve ni se estira al hacer scroll
+   Por defecto se usa la imagen de tablet / laptop / monitor.
+   ========================================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--fondo-app-respaldo);
+  background-image: var(--imagen-fondo-pc);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  pointer-events: none;
+}
+
+/* Celulares: pantalla angosta (hasta 699px) o celular en horizontal (poca altura) */
+@media (max-width: 699px), (orientation: landscape) and (max-height: 500px) {
+
+  body::before {
+    background-image: var(--imagen-fondo-celular);
+  }
+}
+
+
+/* ==========================================================================
+   3. BASE
+   La zona segura (notch) se aplica en el padding del body, así la página
+   nunca queda más alta que la pantalla por culpa de esos márgenes.
    ========================================================================== */
 *,
 *::before,
@@ -77,33 +112,31 @@
   box-sizing: border-box;
 }
 
-/* Respeta las zonas seguras (notch) de los celulares, también en horizontal */
 html {
-  padding-top: env(safe-area-inset-top, 0px);
-  padding-right: env(safe-area-inset-right, 0px);
-  padding-bottom: env(safe-area-inset-bottom, 0px);
-  padding-left: env(safe-area-inset-left, 0px);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100vh;                       /* respaldo para navegadores antiguos */
+  min-height: 100dvh;                      /* alto real visible en celulares */
   display: flex;
   justify-content: center;
-  padding: 18px 14px 30px;
+  padding:
+    calc(18px + env(safe-area-inset-top, 0px))
+    calc(14px + env(safe-area-inset-right, 0px))
+    calc(30px + env(safe-area-inset-bottom, 0px))
+    calc(14px + env(safe-area-inset-left, 0px));
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--color-texto);
-  background-color: var(--fondo-app);
-  background-image:
-    radial-gradient(circle at 15% 0%, var(--fondo-app-resplandor), transparent 55%),
-    radial-gradient(var(--fondo-app-puntos) 1px, transparent 1.2px);
-  background-size: auto, 22px 22px;
+  background-color: var(--fondo-app-respaldo);
   -webkit-tap-highlight-color: transparent;
 }
 
 
 /* ==========================================================================
-   3. APP y PANEL
+   4. APP y PANEL
    ========================================================================== */
 /* Ancho máximo de la webapp (se amplía en tablet, laptop y monitor) */
 .app {
@@ -121,7 +154,7 @@ body {
 
 
 /* ==========================================================================
-   4. CABECERA
+   5. CABECERA
    ========================================================================== */
 .cabecera {
   display: flex;
@@ -155,7 +188,7 @@ body {
 
 
 /* ==========================================================================
-   5. TÍTULOS
+   6. TÍTULOS
    ========================================================================== */
 .titulo-principal {
   margin: 20px 0 4px;
@@ -175,7 +208,7 @@ body {
 
 
 /* ==========================================================================
-   6. GRID de tarjetas
+   7. GRID de tarjetas
    ========================================================================== */
 .grid-tarjetas {
   display: grid;
@@ -188,7 +221,7 @@ body {
 
 
 /* ==========================================================================
-   7. TARJETA
+   8. TARJETA
    Estructura:  .tarjeta > .tarjeta-giro > .cara-frontal + .cara-trasera
    Clases que agrega el JS:
      .tarjeta-volteada → la tarjeta está mostrando su cara trasera
@@ -368,7 +401,7 @@ body {
 
 
 /* ==========================================================================
-   8. BOTÓN CATÁLOGO PDF
+   9. BOTÓN CATÁLOGO PDF
    ========================================================================== */
 .zona-catalogo {
   display: flex;
@@ -476,7 +509,7 @@ body {
 
 
 /* ==========================================================================
-   9. PIE (redes sociales y ubicación)
+   10. PIE (redes sociales y ubicación)
    ========================================================================== */
 .pie {
   text-align: center;
@@ -554,20 +587,20 @@ body {
 
 
 /* ==========================================================================
-   10. RESPONSIVO · CELULAR EN VERTICAL (hasta 699px de ancho)
+   11. RESPONSIVO · CELULAR EN VERTICAL (hasta 699px de ancho)
    Pantalla FIJA: sin scroll y sin desplazamiento. Todo se ajusta a la altura
    disponible: el grid ocupa el espacio sobrante y las tarjetas se adaptan.
 
-   Solo funciona con el celular en VERTICAL (orientation: portrait).
-   Con el celular en HORIZONTAL este bloque no se aplica, y la página
-   se puede desplazar (scroll) con normalidad.
+   Solo se activa si el celular está en VERTICAL y tiene al menos 540px de
+   alto útil. Con menos alto (por ejemplo, los navegadores internos de
+   Instagram, Facebook o WhatsApp) o con el celular en HORIZONTAL, este bloque
+   no se aplica y la página se puede desplazar (scroll) con normalidad.
    ========================================================================== */
-@media (max-width: 699px) and (orientation: portrait) {
+@media (max-width: 699px) and (orientation: portrait) and (min-height: 540px) {
 
   /* --- Bloqueo del desplazamiento (arriba/abajo) --- */
   html {
     height: 100%;
-    padding: 0;                          /* la zona segura se aplica en el body */
     overflow: hidden;
     overscroll-behavior: none;           /* evita "rebote" y recargar al deslizar */
   }
@@ -699,9 +732,9 @@ body {
   }
 }
 
-/* --- Celulares verticales de poca altura (700px de alto o menos): todo más
-       compacto, así las tarjetas ganan espacio --- */
-@media (max-width: 699px) and (orientation: portrait) and (max-height: 700px) {
+/* --- Celulares verticales de poca altura (entre 540px y 700px de alto): todo
+       más compacto, así las tarjetas ganan espacio --- */
+@media (max-width: 699px) and (orientation: portrait) and (min-height: 540px) and (max-height: 700px) {
 
   body {
     padding:
@@ -764,12 +797,16 @@ body {
 
 
 /* ==========================================================================
-   11. RESPONSIVO · TABLET (700px o más)
+   12. RESPONSIVO · TABLET (700px o más)
    ========================================================================== */
 @media (min-width: 700px) {
 
   body {
-    padding: 36px 24px 48px;
+    padding:
+      calc(36px + env(safe-area-inset-top, 0px))
+      calc(24px + env(safe-area-inset-right, 0px))
+      calc(48px + env(safe-area-inset-bottom, 0px))
+      calc(24px + env(safe-area-inset-left, 0px));
   }
 
   .app {
@@ -821,7 +858,7 @@ body {
 
 
 /* ==========================================================================
-   12. RESPONSIVO · LAPTOP (1100px o más)
+   13. RESPONSIVO · LAPTOP (1100px o más)
    ========================================================================== */
 @media (min-width: 1100px) {
 
@@ -845,7 +882,7 @@ body {
 
 
 /* ==========================================================================
-   13. RESPONSIVO · MONITOR GRANDE (1800px o más)
+   14. RESPONSIVO · MONITOR GRANDE (1800px o más)
    ========================================================================== */
 @media (min-width: 1800px) {
 
@@ -860,7 +897,7 @@ body {
 
 
 /* ==========================================================================
-   14. MOVIMIENTO REDUCIDO (accesibilidad)
+   15. MOVIMIENTO REDUCIDO (accesibilidad)
    Si el dispositivo pide menos animaciones, la tarjeta cambia de cara con un
    desvanecido en lugar de girar, y se detienen las animaciones repetitivas.
    ========================================================================== */

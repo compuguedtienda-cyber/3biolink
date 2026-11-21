@@ -36,14 +36,18 @@ document.querySelectorAll(".tarjeta").forEach(function (tarjeta) {
     tarjeta.classList.add("tarjeta-vista");
 
     /* Accesibilidad: informa a lectores de pantalla el estado actual */
-    tarjeta.setAttribute("aria-pressed", mostrarReverso);
-    caraTrasera.setAttribute("aria-hidden", !mostrarReverso);
+    tarjeta.setAttribute("aria-pressed", String(mostrarReverso));
+    if (caraTrasera) {
+      caraTrasera.setAttribute("aria-hidden", String(!mostrarReverso));
+    }
 
     if (mostrarReverso) {
       /* Reinicia la animación de la barra de tiempo */
-      barraTiempo.style.animation = "none";
-      void barraTiempo.offsetWidth;
-      barraTiempo.style.animation = "";
+      if (barraTiempo) {
+        barraTiempo.style.animation = "none";
+        void barraTiempo.offsetWidth;
+        barraTiempo.style.animation = "";
+      }
 
       /* Regresa sola a la cara frontal pasado el tiempo configurado */
       temporizador = setTimeout(function () {
