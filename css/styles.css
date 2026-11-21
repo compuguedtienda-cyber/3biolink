@@ -29,8 +29,8 @@
   /* ---------- 1.1 FONDO DE LA WEBAPP (imágenes) ----------
      Las rutas son relativas a ESTE archivo (css/styles.css), por eso empiezan con "../".
      Respeta mayúsculas, minúsculas y la extensión exacta del archivo. */
-  --imagen-fondo-celular: url("../img/celular/celu3.jpg");   /* celulares */
-  --imagen-fondo-pc: url("../img/fondos/3celeste.jpg");        /* tablet, laptop y monitor */
+  --imagen-fondo-celular: url("../img/celular/celu4.jpg");   /* celulares */
+  --imagen-fondo-pc: url("../img/fondos/2turquesa.jpg");        /* tablet, laptop y monitor */
   --fondo-app-respaldo: #3b3f46;     /* color que se ve un instante mientras carga la imagen */
 
   /* ---------- 1.2 FONDO DEL CONTENEDOR PANEL (caja principal) ---------- */
