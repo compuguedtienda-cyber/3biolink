@@ -12,6 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 
+  <!-- Iconos Font Awesome (se usa para el termómetro del clima) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Estilos (las imágenes de fondo se configuran dentro de este archivo, sección 1.1) -->
   <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -22,10 +25,6 @@
     <symbol id="icono-girar" viewBox="0 0 24 24">
       <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 0 1 15.5-6.2L21 8M21 3v5h-5M21 12a9 9 0 0 1-15.5 6.2L3 16M3 21v-5h5"/>
     </symbol>
-    <!-- Forma de nube reutilizable (la usan los iconos del clima con <use href="#clima-forma-nube">) -->
-    <defs>
-      <path id="clima-forma-nube" d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
-    </defs>
   </svg>
 
   <!-- =====================================================================
@@ -40,102 +39,15 @@
 
       <!-- ===================================================================
            CLIMA: temperatura en tiempo real de Chiclayo (esquina superior izquierda)
-           Lo actualiza js/script.js. El atributo data-estado cambia el icono animado:
-           cargando · sol · luna · parcial · nublado · niebla · lluvia · tormenta · sinDatos
+           Widget tomado del otro proyecto: caja oscura flotante con termómetro.
+           Lo actualiza js/script.js. El icono usa Font Awesome (ver <head>).
            =================================================================== -->
-      <div class="clima" data-estado="cargando" data-nivel="templado" role="img" aria-label="Clima de Chiclayo">
-        <div class="clima-fila">
-
-          <!-- Iconos animados (solo se muestra el que coincide con data-estado) -->
-          <span class="clima-icono" aria-hidden="true">
-
-            <!-- Sol -->
-            <svg class="clima-svg clima-sol" viewBox="0 0 48 48">
-              <g class="sol-rayos" stroke-width="3" stroke-linecap="round">
-                <line x1="24" y1="4" x2="24" y2="9"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(45 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(90 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(135 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(180 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(225 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(270 24 24)"/>
-                <line x1="24" y1="4" x2="24" y2="9" transform="rotate(315 24 24)"/>
-              </g>
-              <circle class="sol-centro" cx="24" cy="24" r="9"/>
-            </svg>
-
-            <!-- Luna (noche despejada) -->
-            <svg class="clima-svg clima-luna" viewBox="0 0 48 48">
-              <g class="luna-cuerpo">
-                <path transform="translate(5 6) scale(1.7)" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-              </g>
-              <circle class="luna-estrella e1" cx="38" cy="10" r="2"/>
-              <circle class="luna-estrella e2" cx="43" cy="22" r="1.5"/>
-              <circle class="luna-estrella e3" cx="30" cy="6" r="1.2"/>
-            </svg>
-
-            <!-- Parcialmente nublado (sol detrás de una nube) -->
-            <svg class="clima-svg clima-parcial" viewBox="0 0 48 48">
-              <g class="sol-rayos sol-chico" stroke-width="2.5" stroke-linecap="round">
-                <line x1="32" y1="3" x2="32" y2="7"/>
-                <line x1="32" y1="3" x2="32" y2="7" transform="rotate(60 32 16)"/>
-                <line x1="32" y1="3" x2="32" y2="7" transform="rotate(120 32 16)"/>
-                <line x1="32" y1="3" x2="32" y2="7" transform="rotate(180 32 16)"/>
-                <line x1="32" y1="3" x2="32" y2="7" transform="rotate(240 32 16)"/>
-                <line x1="32" y1="3" x2="32" y2="7" transform="rotate(300 32 16)"/>
-              </g>
-              <circle class="sol-centro sol-chico" cx="32" cy="16" r="7"/>
-              <g class="nube-mueve">
-                <use class="nube" href="#clima-forma-nube" transform="translate(1 12) scale(1.75)"/>
-              </g>
-            </svg>
-
-            <!-- Nublado -->
-            <svg class="clima-svg clima-nublado" viewBox="0 0 48 48">
-              <g class="nube-mueve">
-                <use class="nube nube-fondo" href="#clima-forma-nube" transform="translate(12 3) scale(1.3)"/>
-              </g>
-              <g class="nube-mueve nube-lenta">
-                <use class="nube" href="#clima-forma-nube" transform="translate(1 12) scale(1.8)"/>
-              </g>
-            </svg>
-
-            <!-- Niebla -->
-            <svg class="clima-svg clima-niebla" viewBox="0 0 48 48">
-              <g class="nube-mueve">
-                <use class="nube" href="#clima-forma-nube" transform="translate(5 4) scale(1.6)"/>
-              </g>
-              <g class="niebla-lineas" stroke-width="3" stroke-linecap="round">
-                <line class="niebla-linea n1" x1="8" y1="34" x2="36" y2="34"/>
-                <line class="niebla-linea n2" x1="14" y1="40" x2="42" y2="40"/>
-              </g>
-            </svg>
-
-            <!-- Lluvia -->
-            <svg class="clima-svg clima-lluvia" viewBox="0 0 48 48">
-              <g class="nube-mueve">
-                <use class="nube" href="#clima-forma-nube" transform="translate(3 2) scale(1.7)"/>
-              </g>
-              <g stroke-width="2.5" stroke-linecap="round">
-                <line class="gota g1" x1="14" y1="34" x2="12" y2="39"/>
-                <line class="gota g2" x1="24" y1="34" x2="22" y2="39"/>
-                <line class="gota g3" x1="34" y1="34" x2="32" y2="39"/>
-              </g>
-            </svg>
-
-            <!-- Tormenta -->
-            <svg class="clima-svg clima-tormenta" viewBox="0 0 48 48">
-              <g class="nube-mueve">
-                <use class="nube nube-oscura" href="#clima-forma-nube" transform="translate(3 0) scale(1.7)"/>
-              </g>
-              <polygon class="rayo" points="26,28 18,40 24,40 21,48 32,35 26,35 29,28"/>
-            </svg>
-
-          </span>
-
+      <div class="clima">
+        <div class="clima-caja">
+          <i class="clima-icono fa-solid fa-temperature-empty" aria-hidden="true"></i>
           <span class="clima-temperatura">-- °C</span>
         </div>
-        <span class="clima-ciudad">Chiclayo</span>
+        <div class="clima-ciudad">Chiclayo</div>
       </div>
 
       <!-- ===== CABECERA: logo y nombre, centrados uno debajo del otro ===== -->

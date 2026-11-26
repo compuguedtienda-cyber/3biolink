@@ -76,9 +76,9 @@ document.querySelectorAll(".tarjeta").forEach(function (tarjeta) {
 
 /* ==========================================================================
    CLIMA EN TIEMPO REAL · CHICLAYO
-   Datos de Open-Meteo (gratuito, sin clave). Se consulta al abrir la página y
-   luego cada cierto tiempo. El icono animado lo elige el CSS según el atributo
-   data-estado del bloque .clima (ver sección 5.1 de css/styles.css).
+   Consulta la temperatura actual en Open-Meteo (gratuito, sin clave) y la
+   muestra en el widget .clima (esquina superior izquierda).
+   El estilo y el efecto flotante están en css/styles.css (sección 5.1).
    ========================================================================== */
 
 
@@ -87,94 +87,42 @@ document.querySelectorAll(".tarjeta").forEach(function (tarjeta) {
    ========================================================================== */
 
 /* Coordenadas de Chiclayo */
-const CLIMA_LATITUD = -6.7714;
-const CLIMA_LONGITUD = -79.8409;
+const CLIMA_URL =
+  "https://api.open-meteo.com/v1/forecast?latitude=-6.7714&longitude=-79.8409&current_weather=true";
+
+/* Suma fija a la temperatura recibida (igual que en el otro proyecto). Ponle 0 para no ajustar */
+const CLIMA_AJUSTE_GRADOS = 1;
 
 /* Cada cuánto se actualiza, en milisegundos (600000 = 10 minutos) */
 const CLIMA_ACTUALIZAR_MS = 600000;
-
-const CLIMA_URL =
-  "https://api.open-meteo.com/v1/forecast" +
-  "?latitude=" + CLIMA_LATITUD +
-  "&longitude=" + CLIMA_LONGITUD +
-  "&current=temperature_2m,weather_code,is_day" +
-  "&timezone=America%2FLima";
 
 
 /* ==========================================================================
    LÓGICA DEL CLIMA
    ========================================================================== */
-const cajaClima = document.querySelector(".clima");
 const textoTemperatura = document.querySelector(".clima-temperatura");
 
-/* Convierte el código de clima de Open-Meteo en un estado (icono) y una descripción */
-function interpretarClima(codigo, esDia) {
-  if (codigo === 0 || codigo === 1) {
-    return esDia
-      ? { estado: "sol", texto: "despejado" }
-      : { estado: "luna", texto: "noche despejada" };
-  }
-  if (codigo === 2) {
-    return { estado: "parcial", texto: "parcialmente nublado" };
-  }
-  if (codigo === 45 || codigo === 48) {
-    return { estado: "niebla", texto: "con neblina" };
-  }
-  if ((codigo >= 51 && codigo <= 67) || (codigo >= 80 && codigo <= 82)) {
-    return { estado: "lluvia", texto: "con lluvia" };
-  }
-  if (codigo >= 95) {
-    return { estado: "tormenta", texto: "con tormenta" };
-  }
-  return { estado: "nublado", texto: "nublado" };
-}
-
-/* Define el color del borde según la temperatura */
-function nivelDeTemperatura(grados) {
-  if (grados < 20) {
-    return "fresco";
-  }
-  if (grados >= 27) {
-    return "calido";
-  }
-  return "templado";
-}
-
-/* Consulta el clima y actualiza la cajita. Si falla, deja "--°" sin romper la página */
-async function actualizarClima() {
-  if (!cajaClima || !textoTemperatura) {
+/* Consulta el clima y escribe la temperatura. Si falla, muestra "-- °C" */
+function actualizarClima() {
+  if (!textoTemperatura) {
     return;
   }
 
-  try {
-    const respuesta = await fetch(CLIMA_URL, { cache: "no-store" });
-    if (!respuesta.ok) {
-      throw new Error("Respuesta no válida");
-    }
-
-    const datos = await respuesta.json();
-    const actual = datos.current;
-    const grados = Math.round(actual.temperature_2m);
-    const clima = interpretarClima(actual.weather_code, actual.is_day === 1);
-
-    textoTemperatura.textContent = grados + " °C";
-    cajaClima.dataset.estado = clima.estado;
-    cajaClima.dataset.nivel = nivelDeTemperatura(grados);
-    cajaClima.setAttribute("aria-label", "Chiclayo: " + grados + " grados, " + clima.texto);
-  } catch (error) {
-    textoTemperatura.textContent = "-- °C";
-    cajaClima.dataset.estado = "sinDatos";
-    cajaClima.setAttribute("aria-label", "Clima de Chiclayo no disponible");
-  }
+  fetch(CLIMA_URL)
+    .then(function (respuesta) {
+      return respuesta.json();
+    })
+    .then(function (datos) {
+      const grados = Math.round(datos.current_weather.temperature) + CLIMA_AJUSTE_GRADOS;
+      textoTemperatura.textContent = grados + " °C";
+    })
+    .catch(function () {
+      textoTemperatura.textContent = "-- °C";
+    });
 }
 
-/* Primera consulta al abrir y luego cada CLIMA_ACTUALIZAR_MS */
+/* Carga inicial */
 actualizarClima();
-setInterval(actualizarClima, CLIMA_ACTUALIZAR_MS);
 
-/* Al volver a la pestaña o app después de un rato, se actualiza de inmediato */
-document.addEventListener("visibilitychange", function () {
-  if (!document.hidden) {
-    actualizarClima();
-  }
-});
+/* Actualizar cada 10 minutos */
+setInterval(actualizarClima, CLIMA_ACTUALIZAR_MS);
